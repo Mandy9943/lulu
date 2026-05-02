@@ -240,11 +240,10 @@ function renderProducts() {
       return `
       <article class="product-card ${productDetailVisible && product.id === selectedProductId ? "is-selected" : ""}">
         <div class="product-media">
-          <img src="${product.image}" alt="${product.name}" width="480" height="600" loading="lazy" />
-          ${product.badge ? `<span class="badge">${product.badge}</span>` : ""}
-          <button class="quick-view" type="button" data-select-product="${product.id}" aria-label="Ver detalle de ${product.name}" title="Ver producto">
-            <span class="material-symbols-outlined" aria-hidden="true">visibility</span>
+          <button class="product-image-button" type="button" data-select-product="${product.id}" aria-label="Ver detalle de ${product.name}">
+            <img src="${product.image}" alt="${product.name}" width="480" height="600" loading="lazy" />
           </button>
+          ${product.badge ? `<span class="badge">${product.badge}</span>` : ""}
         </div>
         <div class="product-card-content">
           <p class="product-meta">
