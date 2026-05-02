@@ -76,6 +76,7 @@ let searchQuery = "";
 let sortMode = "featured";
 let lastFocusBeforeOverlay = null;
 let productDetailVisible = false;
+let lightboxSwipeStart = null;
 
 const currency = new Intl.NumberFormat("es-UY", {
   style: "currency",
@@ -628,6 +629,41 @@ function moveLightbox(delta) {
   renderLightbox();
 }
 
+function startLightboxSwipe(event) {
+  if (lightbox.hidden || event.pointerType === "mouse") {
+    return;
+  }
+
+  lightboxSwipeStart = {
+    x: event.clientX,
+    y: event.clientY,
+  };
+}
+
+function finishLightboxSwipe(event) {
+  if (!lightboxSwipeStart || event.pointerType === "mouse") {
+    lightboxSwipeStart = null;
+    return;
+  }
+
+  const deltaX = event.clientX - lightboxSwipeStart.x;
+  const deltaY = event.clientY - lightboxSwipeStart.y;
+  const horizontalDistance = Math.abs(deltaX);
+  const verticalDistance = Math.abs(deltaY);
+
+  lightboxSwipeStart = null;
+
+  if (horizontalDistance < 48 || horizontalDistance < verticalDistance * 1.2) {
+    return;
+  }
+
+  moveLightbox(deltaX < 0 ? 1 : -1);
+}
+
+function cancelLightboxSwipe() {
+  lightboxSwipeStart = null;
+}
+
 function resetCatalogControls() {
   activeFilter = "all";
   searchQuery = "";
@@ -801,6 +837,10 @@ productSort.addEventListener("change", (event) => {
   sortMode = event.target.value;
   renderProducts();
 });
+
+lightboxImage.addEventListener("pointerdown", startLightboxSwipe);
+lightboxImage.addEventListener("pointerup", finishLightboxSwipe);
+lightboxImage.addEventListener("pointercancel", cancelLightboxSwipe);
 
 document.addEventListener("keydown", (event) => {
   if (event.key === "Tab" && !lightbox.hidden) {
