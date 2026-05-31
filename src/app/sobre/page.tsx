@@ -37,35 +37,30 @@ export default function SobrePage() {
       <section className="about-story">
         <div className="about-story-grid">
           <div className="about-story-text">
-            <h2>Cómo empezamos</h2>
+            <h2>Cómo empecé</h2>
             <p>
-              Todo comenzó en 2018 en la cocina de un apartamento pequeño en el
-              barrio Pocitos. Valentina, que trabajaba en diseño de interiores,
-              se cansó de buscar ollas y sartenes que fueran prácticas{" "}
-              <em>y</em> lindas al mismo tiempo —las que encontraba eran o muy
-              industriales o demasiado caras.
+              Me llamo Nadin. Lulu nació en 2019 porque me cansé de buscar ollas
+              y sartenes que fueran prácticas <em>y</em> lindas al mismo tiempo.
+              Todo lo que encontraba era muy industrial o demasiado caro para lo
+              que era.
             </p>
             <p>
-              Junto a su amiga Carla, que había pasado años trabajando en
-              importación, empezaron a buscar proveedores con cuidado. Querían
-              materiales seguros, colores suaves que no desentonaran con
-              cualquier cocina, y precios que tuvieran sentido para Uruguay.
-            </p>
-            <p>
-              Los primeros pedidos llegaron en 2019: unas pocas sartenes de
-              cerámica en tonos naturales y un set de tazas. Los publicaron en
-              Instagram casi sin querer, y en dos semanas se agotaron. Ahí
-              entendieron que no eran las únicas que buscaban eso.
+              Empecé a buscar proveedores por mi cuenta, con mucho cuidado:
+              materiales seguros, colores que no desentonaran con cualquier
+              cocina, y precios que tuvieran sentido acá en Uruguay. Las
+              primeras sartenes las subí a Instagram casi sin querer, y en dos
+              semanas se agotaron. Ahí entendí que no era la única que buscaba
+              eso.
             </p>
           </div>
 
           <aside className="about-story-aside">
             <div className="about-pull-quote">
               <blockquote>
-                "No queríamos vender utensilios. Queríamos que la gente
-                disfrutara más el tiempo en su cocina."
+                "No quería vender utensilios. Quería que la gente disfrutara más
+                el tiempo en su cocina."
               </blockquote>
-              <cite>— Valentina, cofundadora</cite>
+              <cite>— Nadin, fundadora</cite>
             </div>
           </aside>
         </div>
@@ -125,14 +120,10 @@ export default function SobrePage() {
         <div className="about-today-inner">
           <h2>Hoy</h2>
           <p>
-            Lulu tiene más de 30 productos en catálogo y envía a todo el país.
-            Seguimos siendo un equipo pequeño —eso nos permite elegir bien cada
-            cosa que vendemos y mantener una atención cercana.
-          </p>
-          <p>
-            Cada temporada revisamos el catálogo: sacamos lo que no funcionó,
-            mejoramos lo que sí, y sumamos alguna novedad que hayamos probado
-            primero nosotras en casa.
+            Lulu tiene más de 30 productos en catálogo y enviamos a todo el
+            país. Sigo eligiendo cada cosa que vendo y atendiendo yo misma por
+            WhatsApp —eso me permite conocer bien lo que ofrezco y estar cerca
+            de quien compra.
           </p>
           <Link href="/#catalog" className="btn-primary">
             Ver el catálogo
