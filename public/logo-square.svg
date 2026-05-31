@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="512" height="512">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#b90065"/>
+      <stop offset="100%" stop-color="#8c1f56"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Fondo cuadrado redondeado -->
+  <rect width="512" height="512" rx="96" ry="96" fill="url(#bg)"/>
+
+  <!-- L serif itálica, misma voz visual que el wordmark -->
+  <text
+    x="280"
+    y="410"
+    font-family="'Noto Serif', 'Georgia', 'Times New Roman', serif"
+    font-style="italic"
+    font-weight="500"
+    font-size="390"
+    fill="#ffffff"
+    fill-opacity="1"
+    text-anchor="middle"
+    letter-spacing="-4"
+  >L</text>
+</svg>

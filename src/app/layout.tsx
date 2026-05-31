@@ -28,6 +28,10 @@ export const metadata: Metadata = {
   },
   description: site.description,
   applicationName: site.name,
+  icons: {
+    icon: [{ url: "/logo-square.svg", type: "image/svg+xml" }],
+    apple: "/logo-square.svg",
+  },
   keywords: [
     "ollas",
     "sartenes",
