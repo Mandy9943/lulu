@@ -64,11 +64,20 @@ export const metadata: Metadata = {
     siteName: site.name,
     title: `${site.name} · Cocina bonita para todos los días`,
     description: site.description,
+    images: [
+      {
+        url: "/hero/lulu-cocina-hero.png",
+        width: 1672,
+        height: 941,
+        alt: `${site.name} · Cocina bonita para todos los días`,
+      },
+    ],
   },
   twitter: {
     card: "summary_large_image",
     title: `${site.name} · Cocina bonita para todos los días`,
     description: site.description,
+    images: ["/hero/lulu-cocina-hero.png"],
   },
   robots: {
     index: true,
