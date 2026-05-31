@@ -34,7 +34,9 @@ export function ProductGallery({
   const images = imagesProp ?? product.images;
 
   // video primero, luego imágenes
-  type MediaItem = { type: "video"; src: string } | { type: "image"; src: string };
+  type MediaItem =
+    | { type: "video"; src: string }
+    | { type: "image"; src: string };
   const media: MediaItem[] = [
     ...(video ? [{ type: "video" as const, src: video }] : []),
     ...images.map((src) => ({ type: "image" as const, src })),

@@ -26,7 +26,11 @@ export function ProductDetailClient({ product }: { product: Product }) {
 
   return (
     <div className="detail-layout">
-      <ProductGallery product={product} images={activeImages} video={activeVideo} />
+      <ProductGallery
+        product={product}
+        images={activeImages}
+        video={activeVideo}
+      />
 
       <div className="detail-copy">
         {product.badge && <span className="pill">{product.badge}</span>}

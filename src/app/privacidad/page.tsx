@@ -1,5 +1,5 @@
-import type { Metadata } from "next";
 import { site } from "@/lib/site";
+import type { Metadata } from "next";
 
 export const metadata: Metadata = {
   title: `Política de privacidad · ${site.name}`,
@@ -29,8 +29,8 @@ export default function PrivacyPage() {
         <section aria-labelledby="s-responsable">
           <h2 id="s-responsable">Responsable del tratamiento</h2>
           <p>
-            <strong>{site.legalName}</strong>, con domicilio en{" "}
-            {site.city}, Uruguay.
+            <strong>{site.legalName}</strong>, con domicilio en {site.city},
+            Uruguay.
             <br />
             Podés contactarnos a través de WhatsApp:{" "}
             <a
@@ -61,9 +61,9 @@ export default function PrivacyPage() {
               coordinamos el envío de tu pedido.
             </li>
             <li>
-              <strong>Datos de navegación</strong> — información técnica
-              anónima del dispositivo y navegador (cookies funcionales, sin
-              seguimiento publicitario).
+              <strong>Datos de navegación</strong> — información técnica anónima
+              del dispositivo y navegador (cookies funcionales, sin seguimiento
+              publicitario).
             </li>
           </ul>
           <p>

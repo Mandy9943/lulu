@@ -1,5 +1,5 @@
-import Link from "next/link";
 import { site } from "@/lib/site";
+import Link from "next/link";
 
 export function Footer() {
   return (
@@ -10,7 +10,13 @@ export function Footer() {
       <nav aria-label="Navegación del pie de página">
         <Link href="/sobre">Sobre {site.name}</Link>
         <Link href="/#catalog">Catálogo</Link>
-        <a href={`https://wa.me/${site.whatsappNumber}`} target="_blank" rel="noopener noreferrer">Contacto</a>
+        <a
+          href={`https://wa.me/${site.whatsappNumber}`}
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          Contacto
+        </a>
         <Link href="/privacidad">Privacidad</Link>
       </nav>
       <p>

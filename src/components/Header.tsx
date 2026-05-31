@@ -1,10 +1,10 @@
 "use client";
 
-import Link from "next/link";
-import { useEffect, useState } from "react";
 import { useCart } from "@/components/CartProvider";
 import { Icon } from "@/components/Icon";
 import { site } from "@/lib/site";
+import Link from "next/link";
+import { useEffect, useState } from "react";
 
 export function Header() {
   const { count, open } = useCart();
