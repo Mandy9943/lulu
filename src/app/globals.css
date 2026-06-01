@@ -1377,6 +1377,11 @@ select:focus-visible,
     overflow-x: auto;
     flex-wrap: nowrap;
     padding-bottom: 2px;
+    scrollbar-width: none;
+  }
+
+  .catalog-filters::-webkit-scrollbar {
+    display: none;
   }
 
   .filter-chip {
