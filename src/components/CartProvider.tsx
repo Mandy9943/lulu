@@ -45,7 +45,10 @@ const CartContext = createContext<CartContextValue | null>(null);
 function readStoredCart(): CartItem[] {
   if (typeof window === "undefined") return [];
   try {
-    const raw = JSON.parse(localStorage.getItem(CART_STORAGE_KEY) ?? "[]");
+    const stored = localStorage.getItem(CART_STORAGE_KEY);
+    // Si está vacío, ausente o corrupto, tratar como carrito vacío.
+    if (!stored) return [];
+    const raw = JSON.parse(stored);
     if (!Array.isArray(raw)) return [];
     return raw
       .filter(

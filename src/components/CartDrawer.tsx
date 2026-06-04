@@ -2,6 +2,7 @@
 
 import { useCart } from "@/components/CartProvider";
 import { Icon } from "@/components/Icon";
+import { InstallmentsHint } from "@/components/InstallmentsHint";
 import { formatPrice } from "@/lib/format";
 import { getCover } from "@/lib/products";
 import { FREE_SHIPPING_THRESHOLD } from "@/lib/site";
@@ -187,6 +188,14 @@ export function CartDrawer() {
               <Icon name="local_shipping" />
               <span>Envío gratis en Montevideo</span>
             </p>
+          )}
+          {items.length > 0 && (
+            <InstallmentsHint
+              price={subtotal}
+              variant="block"
+              logoSrc="/payments/mp-isotipo.svg"
+              logoHeight={20}
+            />
           )}
           <p>
             Escribinos por WhatsApp y te confirmamos stock, entrega y forma de

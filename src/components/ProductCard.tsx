@@ -1,5 +1,6 @@
 import { AddToCartButton } from "@/components/AddToCartButton";
 import { Icon } from "@/components/Icon";
+import { InstallmentsHint } from "@/components/InstallmentsHint";
 import { formatPrice } from "@/lib/format";
 import { getCover, type Product } from "@/lib/products";
 import { FREE_SHIPPING_THRESHOLD } from "@/lib/site";
@@ -61,6 +62,7 @@ export function ProductCard({ product, priority = false }: Props) {
           </div>
           <AddToCartButton product={product} variant="quick" />
         </div>{" "}
+        <InstallmentsHint price={product.price} variant="inline" />{" "}
         {product.price > FREE_SHIPPING_THRESHOLD && (
           <span className="shipping-badge">
             <Icon name="local_shipping" />

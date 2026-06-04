@@ -2,6 +2,7 @@
 
 import { AddToCartButton } from "@/components/AddToCartButton";
 import { Icon } from "@/components/Icon";
+import { InstallmentsHint } from "@/components/InstallmentsHint";
 import { ProductGallery } from "@/components/ProductGallery";
 import { formatPrice } from "@/lib/format";
 import type { Product } from "@/lib/products";
@@ -61,6 +62,12 @@ export function ProductDetailClient({ product }: { product: Product }) {
             <span>Envío gratis en Montevideo</span>
           </p>
         )}
+        <InstallmentsHint
+          price={product.price}
+          variant="block"
+          logoSrc="/payments/mp-isotipo.svg"
+          logoHeight={22}
+        />
         <p>{product.description}</p>
 
         {product.highlights.length > 0 && (
