@@ -24,6 +24,10 @@ export function ProductDetailClient({ product }: { product: Product }) {
     ? colorVariants[selectedIdx].label
     : undefined;
 
+  const hasDiscount =
+    typeof product.originalPrice === "number" &&
+    product.originalPrice > product.price;
+
   return (
     <div className="detail-layout">
       <ProductGallery
@@ -36,7 +40,21 @@ export function ProductDetailClient({ product }: { product: Product }) {
         {product.badge && <span className="pill">{product.badge}</span>}
         <h1>{product.name}</h1>
         <p className="variant">{product.variant}</p>
-        <p className="price">{formatPrice(product.price)}</p>
+        <div className="detail-price">
+          <p className="price">{formatPrice(product.price)}</p>
+          {hasDiscount && (
+            <>
+              <span className="price-original price-original--detail">
+                {formatPrice(product.originalPrice!)}
+              </span>
+              {product.discountPercent !== undefined && (
+                <span className="discount-badge discount-badge--detail">
+                  -{product.discountPercent}% OFF
+                </span>
+              )}
+            </>
+          )}
+        </div>
         {product.price > FREE_SHIPPING_THRESHOLD && (
           <p className="shipping-note">
             <Icon name="local_shipping" />

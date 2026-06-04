@@ -41,6 +41,17 @@ export interface Product {
   type: ProductType;
   /** Etiqueta destacada (ej: "Nuevo"). Si existe, aparece en "Favoritos". */
   badge?: string;
+  /**
+   * Precio "anterior" (tachado). Si está definido y es mayor que `price`,
+   * se muestra tachado al lado del precio actual como gancho visual.
+   * El cliente sigue pagando `price` — el descuento es solo de marketing.
+   */
+  originalPrice?: number;
+  /**
+   * Porcentaje de descuento a mostrar en el badge (ej: 20 → "-20% OFF").
+   * Solo se usa como etiqueta visual; no se aplica al cálculo real.
+   */
+  discountPercent?: number;
   variant: string;
   shortDescription: string;
   description: string;
@@ -92,6 +103,8 @@ export const products: Product[] = [
     slug: "bateria-rosa-desmontable",
     name: "Set de batería rosa con mango desmontable - 17 piezas",
     price: 6290,
+    originalPrice: 7890,
+    discountPercent: 20,
     category: "Cocina",
     type: "ollas",
     badge: "Nuevo",
@@ -116,6 +129,8 @@ export const products: Product[] = [
     slug: "ollas-blancas-desmontables",
     name: "Set de ollas y sartén con mango desmontable - 5 piezas",
     price: 3190,
+    originalPrice: 3990,
+    discountPercent: 20,
     category: "Cocina",
     type: "ollas",
     badge: "Favorito",
@@ -210,6 +225,8 @@ export const products: Product[] = [
     slug: "estacion-desayuno-3en1",
     name: "Estación de desayuno 3 en 1 - horno, bifera y cafetera",
     price: 2590,
+    originalPrice: 3290,
+    discountPercent: 21,
     category: "Desayuno",
     type: "sartenes",
     badge: "Estrella",
@@ -265,6 +282,8 @@ export const products: Product[] = [
     slug: "bento-box-acero",
     name: "Bento box de acero inoxidable con dos divisiones",
     price: 880,
+    originalPrice: 1190,
+    discountPercent: 25,
     category: "Accesorios",
     type: "accesorios",
     variant: "Acero inoxidable con dos divisiones",
