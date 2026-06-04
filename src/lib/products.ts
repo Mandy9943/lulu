@@ -48,6 +48,8 @@ export interface Product {
   /** Portada opcional. Si no se define, se usa images[0]. */
   coverImage?: string;
   images: string[];
+  /** Video opcional que aparece como primer slide de la galería. */
+  video?: string;
   /**
    * Variantes de color seleccionables. Cuando se define, en el detalle
    * aparece un selector de swatches que cambia las imágenes de la galería.
@@ -271,7 +273,13 @@ export const products: Product[] = [
     description:
       "Un bento box de acero inoxidable con dos divisiones para transportar tu almuerzo prolijo y sin que se mezclen los sabores. Práctico, duradero y fácil de limpiar.",
     highlights: ["Acero inoxidable", "Dos divisiones", "Ideal para llevar"],
-    images: ["/productos/bento-box-acero/bento-box-acero-1.jpeg"],
+    images: [
+      "/productos/bento-box-acero/bento-box-acero-1.jpeg",
+      "/productos/bento-box-acero/bento-box-acero-2.jpeg",
+      "/productos/bento-box-acero/bento-box-acero-3.jpeg",
+      "/productos/bento-box-acero/bento-box-acero-4.jpeg",
+    ],
+    video: "/productos/bento-box-acero/bento-box-acero.mp4",
   },
   {
     // Producto nuevo · agregar más imágenes a futuro en public/productos/vaso-termico-led/

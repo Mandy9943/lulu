@@ -18,7 +18,7 @@ export function ProductDetailClient({ product }: { product: Product }) {
 
   const activeVideo = colorVariants
     ? colorVariants[selectedIdx].video
-    : undefined;
+    : product.video;
 
   const activeVariantLabel = colorVariants
     ? colorVariants[selectedIdx].label
