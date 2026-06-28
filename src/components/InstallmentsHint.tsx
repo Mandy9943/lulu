@@ -95,12 +95,6 @@ export function InstallmentsHint({
         ) : (
           <strong>{label}</strong>
         )}
-        {variant === "block" && (
-          <>
-            {" "}
-            con <strong>Mercado Pago</strong>
-          </>
-        )}
       </span>
     </p>
   );
