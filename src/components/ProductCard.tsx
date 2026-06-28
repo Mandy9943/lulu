@@ -2,7 +2,7 @@ import { AddToCartButton } from "@/components/AddToCartButton";
 import { Icon } from "@/components/Icon";
 import { InstallmentsHint } from "@/components/InstallmentsHint";
 import { formatPrice } from "@/lib/format";
-import { getCover, type Product } from "@/lib/products";
+import { getCover, isProductAvailable, type Product } from "@/lib/products";
 import { FREE_SHIPPING_THRESHOLD } from "@/lib/site";
 import Image from "next/image";
 import Link from "next/link";
@@ -17,9 +17,12 @@ export function ProductCard({ product, priority = false }: Props) {
   const hasDiscount =
     typeof product.originalPrice === "number" &&
     product.originalPrice > product.price;
+  const outOfStock = !isProductAvailable(product);
 
   return (
-    <article className="product-card">
+    <article
+      className={`product-card${outOfStock ? " product-card--out" : ""}`}
+    >
       <div className="product-media">
         <Link
           className="product-image-button"
@@ -38,6 +41,12 @@ export function ProductCard({ product, priority = false }: Props) {
         {hasDiscount && product.discountPercent !== undefined && (
           <span className="discount-badge">
             -{product.discountPercent}% OFF
+          </span>
+        )}
+        {outOfStock && (
+          <span className="out-badge">
+            <Icon name="block" />
+            Agotado
           </span>
         )}
       </div>
@@ -60,7 +69,11 @@ export function ProductCard({ product, priority = false }: Props) {
               </span>
             )}
           </div>
-          <AddToCartButton product={product} variant="quick" />
+          <AddToCartButton
+            product={product}
+            variant="quick"
+            outOfStock={outOfStock}
+          />
         </div>{" "}
         <InstallmentsHint price={product.price} variant="inline" />{" "}
         {product.price > FREE_SHIPPING_THRESHOLD && (

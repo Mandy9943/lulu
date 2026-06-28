@@ -1,7 +1,12 @@
 import { Icon } from "@/components/Icon";
 import { JsonLd } from "@/components/JsonLd";
 import { ProductDetailClient } from "@/components/ProductDetailClient";
-import { getAllSlugs, getCover, getProductBySlug } from "@/lib/products";
+import {
+  getAllSlugs,
+  getCover,
+  getProductBySlug,
+  isProductAvailable,
+} from "@/lib/products";
 import { site } from "@/lib/site";
 import type { Metadata } from "next";
 import Link from "next/link";
@@ -75,7 +80,9 @@ export default async function ProductPage({
       url,
       priceCurrency: site.currency,
       price: product.price,
-      availability: "https://schema.org/InStock",
+      availability: isProductAvailable(product)
+        ? "https://schema.org/InStock"
+        : "https://schema.org/OutOfStock",
       seller: { "@type": "Organization", name: site.legalName },
     },
   };

@@ -28,6 +28,8 @@ export interface ColorVariant {
   images: string[];
   /** Video opcional para este color (ruta desde /public) */
   video?: string;
+  /** Si está agotado, este color no se puede comprar. */
+  outOfStock?: boolean;
 }
 
 export interface Product {
@@ -66,13 +68,22 @@ export interface Product {
    * aparece un selector de swatches que cambia las imágenes de la galería.
    */
   colorVariants?: ColorVariant[];
+  /**
+   * Si está agotado, el producto no se puede comprar.
+   * - En la card: badge "Agotado" + botón deshabilitado.
+   * - En el detalle: contenido visible, CTA deshabilitado.
+   * - En el carrito: bloquea el checkout hasta quitarlo.
+   * Si una variante específica también está agotada, esa variante
+   * queda deshabilitada aunque el producto esté disponible.
+   */
+  outOfStock?: boolean;
 }
 
 export const products: Product[] = [
   {
     slug: "utensilios-silicona",
     name: "Set de menaje de silicona con soporte - 15 piezas",
-    price: 690,
+    price: 530,
     category: "Cocina",
     type: "utensilios",
     badge: "Más elegido",
@@ -102,7 +113,7 @@ export const products: Product[] = [
   {
     slug: "bateria-rosa-desmontable",
     name: "Set de batería rosa con mango desmontable - 17 piezas",
-    price: 6290,
+    price: 4900,
     originalPrice: 7890,
     discountPercent: 20,
     category: "Cocina",
@@ -134,6 +145,7 @@ export const products: Product[] = [
     category: "Cocina",
     type: "ollas",
     badge: "Favorito",
+    outOfStock: true,
     variant: "Set compacto de 5 piezas",
     shortDescription:
       "Ollas apilables en tono marfil para una cocina luminosa, práctica y ordenada.",
@@ -159,7 +171,7 @@ export const products: Product[] = [
   {
     slug: "sarten-cuatro-cavidades",
     name: "Sartén de cerámica con 4 cavidades - mango madera",
-    price: 690,
+    price: 530,
     category: "Cocina",
     type: "sartenes",
     badge: "Desayunos",
@@ -190,7 +202,7 @@ export const products: Product[] = [
   {
     slug: "sarten-grill-cuadrado",
     name: "Bifera antiadherente de cerámica - mango de madera",
-    price: 690,
+    price: 590,
     category: "Cocina",
     type: "sartenes",
     badge: "Top cocina",
@@ -248,6 +260,7 @@ export const products: Product[] = [
         images: [
           "/productos/estacion-desayuno-3en1/estacion-desayuno-3en1-1.jpeg",
         ],
+        outOfStock: true,
       },
       {
         label: "Negro",
@@ -262,7 +275,7 @@ export const products: Product[] = [
     // Producto nuevo · agregar más imágenes a futuro en public/productos/sarten-ceramica-2en1/
     slug: "sarten-ceramica-2en1",
     name: "Sartén de cerámica 2 en 1 - bifera y cavidades",
-    price: 690,
+    price: 590,
     category: "Cocina",
     type: "sartenes",
     variant: "Cerámica antiadherente con mango de madera",
@@ -281,7 +294,7 @@ export const products: Product[] = [
     // Producto nuevo · agregar más imágenes a futuro en public/productos/bento-box-acero/
     slug: "bento-box-acero",
     name: "Bento box de acero inoxidable con dos divisiones",
-    price: 880,
+    price: 850,
     originalPrice: 1190,
     discountPercent: 25,
     category: "Accesorios",
@@ -334,6 +347,7 @@ export const products: Product[] = [
       "Un set de tres toallas presentado en caja con bolsa de regalo: una opción simple y prolija para obsequiar o para renovar tus toallas con estilo.",
     highlights: ["3 piezas", "Caja y bolsa de regalo", "Listo para regalar"],
     images: ["/productos/set-toallas-regalo/set-toallas-regalo-1.jpeg"],
+    outOfStock: true,
   },
   {
     // Producto nuevo · agregar más imágenes a futuro en public/productos/taza-cafe-viaje/
@@ -365,4 +379,37 @@ export function getProductBySlug(slug: string): Product | undefined {
 /** Lista de slugs para generación estática de rutas. */
 export function getAllSlugs(): string[] {
   return products.map((product) => product.slug);
+}
+
+/**
+ * ¿El producto está disponible para comprar (a nivel global)?
+ * Un producto agotado bloquea TODAS sus variantes.
+ */
+export function isProductAvailable(product: Product): boolean {
+  return !product.outOfStock;
+}
+
+/** ¿Esta variante puntual está disponible? */
+export function isVariantAvailable(variant: ColorVariant): boolean {
+  return !variant.outOfStock;
+}
+
+/**
+ * Resuelve la disponibilidad efectiva para un (producto, variantLabel).
+ * - Si el producto está agotado → false.
+ * - Si tiene colorVariants y se pasa variantLabel → busca esa variante;
+ *   si no encuentra match, usa la primera.
+ * - Si no tiene variantes → disponibilidad del producto.
+ */
+export function getVariantAvailability(
+  product: Product,
+  variantLabel?: string,
+): boolean {
+  if (!isProductAvailable(product)) return false;
+  if (!product.colorVariants || product.colorVariants.length === 0) return true;
+  const variant =
+    (variantLabel &&
+      product.colorVariants.find((v) => v.label === variantLabel)) ||
+    product.colorVariants[0];
+  return isVariantAvailable(variant);
 }

@@ -1101,6 +1101,9 @@ select:focus-visible,
 }
 
 .pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
   width: fit-content;
   padding: 5px 10px;
   border-radius: 999px;
@@ -1110,6 +1113,114 @@ select:focus-visible,
   font-weight: 700;
   letter-spacing: 0.08em;
   text-transform: uppercase;
+  line-height: 1;
+}
+
+.pill .material-symbols-outlined {
+  font-size: 14px;
+  line-height: 1;
+}
+
+.pill--out {
+  background: rgba(168, 46, 106, 0.12);
+  color: var(--color-primary);
+}
+
+.out-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  z-index: 2;
+  padding: 5px 9px;
+  border-radius: 999px;
+  background: #1c1b1b;
+  color: #fff;
+  font-size: 0.62rem;
+  font-weight: 800;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+}
+
+.out-badge .material-symbols-outlined {
+  font-size: 13px;
+  line-height: 1;
+}
+
+.cart-line-out {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  margin: 4px 0 6px;
+  color: var(--color-primary);
+  font-size: 0.78rem;
+  font-weight: 700;
+}
+
+.cart-line-out .material-symbols-outlined {
+  font-size: 16px;
+  line-height: 1;
+}
+
+.cart-checkout-warning {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin: 6px 0 0;
+  padding: 10px 12px;
+  border-radius: 12px;
+  background: rgba(168, 46, 106, 0.08);
+  color: var(--color-primary);
+  font-size: 0.85rem;
+  line-height: 1.35;
+}
+
+.cart-checkout-warning .material-symbols-outlined {
+  font-size: 18px;
+  line-height: 1;
+  flex-shrink: 0;
+}
+
+.product-card--out .product-image-button img {
+  filter: grayscale(35%) brightness(0.96);
+  opacity: 0.85;
+}
+
+.product-card--out .quick-add {
+  background: transparent;
+  color: #888;
+  border-color: #ddd;
+  cursor: not-allowed;
+}
+
+.product-card--out .quick-add:hover {
+  background: transparent;
+  color: #888;
+  border-color: #ddd;
+}
+
+.color-swatch--disabled {
+  cursor: not-allowed;
+  opacity: 0.35;
+  filter: grayscale(80%);
+}
+
+.color-swatch--disabled::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: 999px;
+  background: linear-gradient(
+    to top right,
+    transparent calc(50% - 1px),
+    rgba(0, 0, 0, 0.55) calc(50% - 1px),
+    rgba(0, 0, 0, 0.55) calc(50% + 1px),
+    transparent calc(50% + 1px)
+  );
+  pointer-events: none;
 }
 
 .detail-copy h1 {

@@ -5,13 +5,24 @@ import { Icon } from "@/components/Icon";
 import { InstallmentsHint } from "@/components/InstallmentsHint";
 import { ProductGallery } from "@/components/ProductGallery";
 import { formatPrice } from "@/lib/format";
-import type { Product } from "@/lib/products";
+import {
+  getVariantAvailability,
+  isProductAvailable,
+  type Product,
+} from "@/lib/products";
 import { FREE_SHIPPING_THRESHOLD } from "@/lib/site";
 import { useState } from "react";
 
 export function ProductDetailClient({ product }: { product: Product }) {
   const colorVariants = product.colorVariants;
-  const [selectedIdx, setSelectedIdx] = useState(0);
+  // Si la variante inicial está agotada, buscamos una disponible
+  // para que el swatch seleccionado no quede bloqueado al cargar.
+  const initialIdx = (() => {
+    if (!colorVariants) return 0;
+    const firstAvailable = colorVariants.findIndex((v) => !v.outOfStock);
+    return firstAvailable === -1 ? 0 : firstAvailable;
+  })();
+  const [selectedIdx, setSelectedIdx] = useState(initialIdx);
 
   const activeImages = colorVariants
     ? colorVariants[selectedIdx].images
@@ -29,6 +40,10 @@ export function ProductDetailClient({ product }: { product: Product }) {
     typeof product.originalPrice === "number" &&
     product.originalPrice > product.price;
 
+  const productOutOfStock = !isProductAvailable(product);
+  const activeOutOfStock = !getVariantAvailability(product, activeVariantLabel);
+  const outOfStock = productOutOfStock || activeOutOfStock;
+
   return (
     <div className="detail-layout">
       <ProductGallery
@@ -38,7 +53,15 @@ export function ProductDetailClient({ product }: { product: Product }) {
       />
 
       <div className="detail-copy">
-        {product.badge && <span className="pill">{product.badge}</span>}
+        <div className="detail-pills">
+          {product.badge && <span className="pill">{product.badge}</span>}
+          {outOfStock && (
+            <span className="pill pill--out">
+              <Icon name="block" />
+              Agotado
+            </span>
+          )}
+        </div>
         <h1>{product.name}</h1>
         <p className="variant">{product.variant}</p>
         <div className="detail-price">
@@ -87,17 +110,24 @@ export function ProductDetailClient({ product }: { product: Product }) {
               Color: <strong>{colorVariants[selectedIdx].label}</strong>
             </p>
             <div className="color-swatches" role="group" aria-label="Color">
-              {colorVariants.map((v, i) => (
-                <button
-                  key={v.label}
-                  type="button"
-                  className={`color-swatch${i === selectedIdx ? " color-swatch--active" : ""}`}
-                  style={{ "--swatch-color": v.hex } as React.CSSProperties}
-                  onClick={() => setSelectedIdx(i)}
-                  aria-label={`Color ${v.label}`}
-                  aria-pressed={i === selectedIdx}
-                />
-              ))}
+              {colorVariants.map((v, i) => {
+                const variantOut = productOutOfStock || !!v.outOfStock;
+                const isSelected = i === selectedIdx;
+                return (
+                  <button
+                    key={v.label}
+                    type="button"
+                    className={`color-swatch${isSelected ? " color-swatch--active" : ""}${variantOut ? " color-swatch--disabled" : ""}`}
+                    style={{ "--swatch-color": v.hex } as React.CSSProperties}
+                    onClick={() => !variantOut && setSelectedIdx(i)}
+                    disabled={variantOut}
+                    aria-disabled={variantOut}
+                    aria-label={`Color ${v.label}${variantOut ? " (agotado)" : ""}`}
+                    aria-pressed={isSelected}
+                    title={variantOut ? `${v.label} agotado` : v.label}
+                  />
+                );
+              })}
             </div>
           </div>
         )}
@@ -112,6 +142,7 @@ export function ProductDetailClient({ product }: { product: Product }) {
             product={product}
             variant="detail"
             variantLabel={activeVariantLabel}
+            outOfStock={outOfStock}
           />
         </div>
       </div>

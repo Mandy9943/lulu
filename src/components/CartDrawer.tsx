@@ -27,6 +27,7 @@ export function CartDrawer() {
     remove,
     updateQuantity,
     checkoutWhatsApp,
+    hasOutOfStock,
   } = useCart();
   const drawerRef = useRef<HTMLDivElement>(null);
   const closeButtonRef = useRef<HTMLButtonElement>(null);
@@ -114,9 +115,9 @@ export function CartDrawer() {
               </div>
             </div>
           ) : (
-            items.map(({ product, quantity, variantLabel }) => (
+            items.map(({ product, quantity, variantLabel, outOfStock }) => (
               <article
-                className="cart-line"
+                className={`cart-line${outOfStock ? " cart-line--out" : ""}`}
                 key={`${product.slug}::${variantLabel ?? ""}`}
               >
                 <Image
@@ -137,6 +138,12 @@ export function CartDrawer() {
                       product.variant
                     )}
                   </p>
+                  {outOfStock && (
+                    <p className="cart-line-out">
+                      <Icon name="block" />
+                      <span>Agotado — quitá este producto para continuar.</span>
+                    </p>
+                  )}
                   <div
                     className="quantity-control"
                     aria-label={`Controles de cantidad para ${product.name}`}
@@ -201,11 +208,20 @@ export function CartDrawer() {
             Escribinos por WhatsApp y te confirmamos stock, entrega y forma de
             pago.
           </p>
+          {hasOutOfStock && (
+            <p className="cart-checkout-warning" role="status">
+              <Icon name="block" />
+              <span>
+                Tenés productos agotados en el carrito. Quitalos para poder
+                finalizar el pedido.
+              </span>
+            </p>
+          )}
           <button
             className="primary-button checkout-button"
             type="button"
             onClick={checkoutWhatsApp}
-            disabled={items.length === 0}
+            disabled={items.length === 0 || hasOutOfStock}
           >
             Comprar por WhatsApp
           </button>
