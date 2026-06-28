@@ -298,7 +298,7 @@ export const products: Product[] = [
     name: "Sartén de cerámica 2 en 1 - bifera y cavidades",
     price: 590,
     // TODO mpPrice: confirmar valor real. Placeholder: price * 1.086
-    mpPrice: 640,
+    mpPrice: 641,
     category: "Cocina",
     type: "sartenes",
     variant: "Cerámica antiadherente con mango de madera",
