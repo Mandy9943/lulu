@@ -34,7 +34,7 @@ export function Header() {
           className="site-topbar__logo"
         />
         <span className="site-topbar__text">
-          <strong>12 cuotas sin interés</strong> con Mercado Pago
+          <strong>12 cuotas con Mercado Pago</strong>
         </span>
       </div>
       <header className="site-header" data-elevated={elevated}>

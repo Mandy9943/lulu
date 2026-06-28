@@ -54,6 +54,15 @@ export interface Product {
    * Solo se usa como etiqueta visual; no se aplica al cálculo real.
    */
   discountPercent?: number;
+  /**
+   * Precio "financiado" sobre el que se calcula la cuota de Mercado Pago
+   * (ej: 12x $444 con Mercado Pago). Si no se define, se usa `price`.
+   *
+   * El precio al contado (`price`) sigue mostrándose tal cual; este campo
+   * sólo cambia la base sobre la que se divide entre 12. Es display-only:
+   * el cobro real se coordina por WhatsApp.
+   */
+  mpPrice?: number;
   variant: string;
   shortDescription: string;
   description: string;
@@ -84,6 +93,8 @@ export const products: Product[] = [
     slug: "utensilios-silicona",
     name: "Set de menaje de silicona con soporte - 15 piezas",
     price: 530,
+    // TODO mpPrice: confirmar valor real. Placeholder: price * 1.086
+    mpPrice: 576.27,
     category: "Cocina",
     type: "utensilios",
     badge: "Más elegido",
@@ -114,6 +125,8 @@ export const products: Product[] = [
     slug: "bateria-rosa-desmontable",
     name: "Set de batería rosa con mango desmontable - 17 piezas",
     price: 4900,
+    // TODO mpPrice: confirmar valor real. Placeholder: price * 1.086
+    mpPrice: 5327.82,
     originalPrice: 7890,
     discountPercent: 20,
     category: "Cocina",
@@ -140,6 +153,8 @@ export const products: Product[] = [
     slug: "ollas-blancas-desmontables",
     name: "Set de ollas y sartén con mango desmontable - 5 piezas",
     price: 3190,
+    // TODO mpPrice: confirmar valor real. Placeholder: price * 1.086
+    mpPrice: 3464,
     originalPrice: 3990,
     discountPercent: 20,
     category: "Cocina",
@@ -172,6 +187,8 @@ export const products: Product[] = [
     slug: "sarten-cuatro-cavidades",
     name: "Sartén de cerámica con 4 cavidades - mango madera",
     price: 530,
+    // TODO mpPrice: confirmar valor real. Placeholder: price * 1.086
+    mpPrice: 576.27,
     category: "Cocina",
     type: "sartenes",
     badge: "Desayunos",
@@ -203,6 +220,8 @@ export const products: Product[] = [
     slug: "sarten-grill-cuadrado",
     name: "Bifera antiadherente de cerámica - mango de madera",
     price: 590,
+    // TODO mpPrice: confirmar valor real. Placeholder: price * 1.086
+    mpPrice: 641.51,
     category: "Cocina",
     type: "sartenes",
     badge: "Top cocina",
@@ -236,7 +255,9 @@ export const products: Product[] = [
   {
     slug: "estacion-desayuno-3en1",
     name: "Estación de desayuno 3 en 1 - horno, bifera y cafetera",
-    price: 2590,
+    price: 1990,
+    // TODO mpPrice: confirmar valor real. Placeholder: price * 1.086
+    mpPrice: 2163,
     originalPrice: 3290,
     discountPercent: 21,
     category: "Desayuno",
@@ -276,6 +297,8 @@ export const products: Product[] = [
     slug: "sarten-ceramica-2en1",
     name: "Sartén de cerámica 2 en 1 - bifera y cavidades",
     price: 590,
+    // TODO mpPrice: confirmar valor real. Placeholder: price * 1.086
+    mpPrice: 640,
     category: "Cocina",
     type: "sartenes",
     variant: "Cerámica antiadherente con mango de madera",
@@ -295,6 +318,8 @@ export const products: Product[] = [
     slug: "bento-box-acero",
     name: "Bento box de acero inoxidable con dos divisiones",
     price: 850,
+    // TODO mpPrice: confirmar valor real. Placeholder: price * 1.086
+    mpPrice: 924.21,
     originalPrice: 1190,
     discountPercent: 25,
     category: "Accesorios",
@@ -318,6 +343,8 @@ export const products: Product[] = [
     slug: "vaso-termico-led",
     name: "Vaso térmico con control de temperatura led - 450ml",
     price: 400,
+    // TODO mpPrice: confirmar valor real. Placeholder: price * 1.086
+    mpPrice: 434.92,
     category: "Accesorios",
     type: "accesorios",
     badge: "Nuevo",
@@ -338,6 +365,8 @@ export const products: Product[] = [
     slug: "set-toallas-regalo",
     name: "Set de toallas 3 piezas - con caja y bolsa de regalo",
     price: 490,
+    // TODO mpPrice: confirmar valor real. Placeholder: price * 1.086
+    mpPrice: 532,
     category: "Accesorios",
     type: "accesorios",
     variant: "3 piezas con caja y bolsa de regalo",
@@ -354,6 +383,8 @@ export const products: Product[] = [
     slug: "taza-cafe-viaje",
     name: "Taza de café hermético para viaje - 400ml",
     price: 190,
+    // TODO mpPrice: confirmar valor real. Placeholder: price * 1.086
+    mpPrice: 206,
     category: "Accesorios",
     type: "accesorios",
     variant: "400 ml hermética para llevar",
@@ -369,6 +400,17 @@ export const products: Product[] = [
 /** Portada efectiva de un producto. */
 export function getCover(product: Product): string {
   return product.coverImage ?? product.images[0];
+}
+
+/**
+ * Precio "financiado" sobre el que se calcula la cuota de Mercado Pago.
+ * Si el producto no define `mpPrice`, cae al precio de contado `price`.
+ *
+ * Uso: pasar este resultado a `InstallmentsHint` para que la cuota refleje
+ * el valor real que se cobra con MP (puede incluir interés).
+ */
+export function getMpPrice(product: Product): number {
+  return product.mpPrice ?? product.price;
 }
 
 /** Devuelve un producto por su slug. */

@@ -34,8 +34,8 @@ type Props = {
 
 /**
  * Pista visual de pago en cuotas con Mercado Pago.
- * Ej. inline: "12x $525 sin interés" con el logo MP al lado.
- * Ej. block: "Pagá en 12 cuotas sin interés con Mercado Pago".
+ * Ej. inline: "12x $444 con Mercado Pago" con el logo MP al lado.
+ * Ej. block: "Pagá en 12 cuotas de $444 con Mercado Pago".
  */
 export function InstallmentsHint({
   price,
@@ -48,12 +48,12 @@ export function InstallmentsHint({
 }: Props) {
   const cuota = formatInstallment(price, installments);
   const label = showAmount
-    ? `${installments}x ${cuota} sin interés`
-    : `${installments} cuotas sin interés`;
+    ? `${installments}x ${cuota} con Mercado Pago`
+    : `${installments} cuotas con Mercado Pago`;
 
   const ariaLabel = showAmount
-    ? `Pagá en ${installments} cuotas de ${cuota} sin interés con Mercado Pago`
-    : `Pagá en ${installments} cuotas sin interés con Mercado Pago`;
+    ? `Pagá en ${installments} cuotas de ${cuota} con Mercado Pago`
+    : `Pagá en ${installments} cuotas con Mercado Pago`;
 
   const classes = [
     "installments-hint",
@@ -90,7 +90,7 @@ export function InstallmentsHint({
             <strong>
               {installments}x {cuota}
             </strong>{" "}
-            sin interés
+            con Mercado Pago
           </>
         ) : (
           <strong>{label}</strong>

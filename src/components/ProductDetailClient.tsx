@@ -6,6 +6,7 @@ import { InstallmentsHint } from "@/components/InstallmentsHint";
 import { ProductGallery } from "@/components/ProductGallery";
 import { formatPrice } from "@/lib/format";
 import {
+  getMpPrice,
   getVariantAvailability,
   isProductAvailable,
   type Product,
@@ -86,7 +87,7 @@ export function ProductDetailClient({ product }: { product: Product }) {
           </p>
         )}
         <InstallmentsHint
-          price={product.price}
+          price={getMpPrice(product)}
           variant="block"
           logoSrc="/payments/mp-isotipo.svg"
           logoHeight={22}
