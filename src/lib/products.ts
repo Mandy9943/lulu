@@ -264,6 +264,7 @@ export const products: Product[] = [
     type: "sartenes",
     badge: "Estrella",
     variant: "Horno eléctrico + bifera + cafetera de goteo",
+    outOfStock: true,
     shortDescription:
       "Tostá, cociná y preparás café en un solo equipo compacto y con mucho encanto.",
     description:
@@ -289,6 +290,7 @@ export const products: Product[] = [
         // Guardá la foto negra en: public/productos/estacion-desayuno-3en1/estacion-negro-1.jpeg
         images: ["/productos/estacion-desayuno-3en1/estacion-negro-1.jpeg"],
         video: "/productos/estacion-desayuno-3en1/estacion-negro.mp4",
+        outOfStock: true,
       },
     ],
   },
