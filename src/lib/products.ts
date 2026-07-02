@@ -168,7 +168,8 @@ export const products: Product[] = [
       "Apto para inducción",
       "Apilable y desmontable",
     ],
-    coverImage: "/productos/olla-cara/79e2f04c-b983-439e-bdfc-a7dea4094566.jpeg",
+    coverImage:
+      "/productos/olla-cara/79e2f04c-b983-439e-bdfc-a7dea4094566.jpeg",
     images: [
       "/productos/olla-cara/79e2f04c-b983-439e-bdfc-a7dea4094566.jpeg",
       "/productos/olla-cara/c7506439-ef13-419d-8617-714028c5e58e.jpeg",
