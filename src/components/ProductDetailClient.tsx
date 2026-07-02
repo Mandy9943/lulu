@@ -92,7 +92,18 @@ export function ProductDetailClient({ product }: { product: Product }) {
           logoSrc="/payments/mp-isotipo.svg"
           logoHeight={22}
         />
-        <p>{product.description}</p>
+        {product.descriptionBlocks && product.descriptionBlocks.length > 0 ? (
+          <div className="detail-description">
+            {product.descriptionBlocks.map((block) => (
+              <section key={block.title} className="detail-description-block">
+                <h3>{block.title}</h3>
+                <p>{block.body}</p>
+              </section>
+            ))}
+          </div>
+        ) : (
+          <p>{product.description}</p>
+        )}
 
         {product.highlights.length > 0 && (
           <ul className="detail-highlights">

@@ -66,6 +66,13 @@ export interface Product {
   variant: string;
   shortDescription: string;
   description: string;
+  /**
+   * Descripción larga estructurada por bloques para el detalle del producto.
+   * Si se define, reemplaza el render plano de `description` por una lista
+   * con `título` destacado y `body` debajo de cada uno. La descripción plana
+   * (`description`) sigue usándose para SEO, búsqueda y meta description.
+   */
+  descriptionBlocks?: { title: string; body: string }[];
   highlights: string[];
   /** Portada opcional. Si no se define, se usa images[0]. */
   coverImage?: string;
@@ -134,19 +141,43 @@ export const products: Product[] = [
     badge: "Nuevo",
     variant: "Antiadherente premium con mango desmontable",
     shortDescription:
-      "Set apilable para cocinar cómodo, ahorrar espacio y lucir una cocina más suave.",
+      "Juego premium de aluminio con mango extraíble, antiadherente libre de PFOA y apilable.",
     description:
-      "Una batería versátil con ollas, sartenes, tapas, mangos desmontables y accesorios. Pensada para resolver comidas de todos los días y guardar cada pieza sin ocupar de más.",
-    highlights: ["Ahorra espacio", "Mango desmontable", "Limpieza fácil"],
-    coverImage: "/productos/olla-cara/702820C8-1130-47D4-9FED-1F87AD6B7873.PNG",
+      "Descubre la combinación perfecta de diseño, funcionalidad y salud para tu cocina con nuestro juego de ollas y sartenes premium de aluminio de alta resistencia. Cocina de forma más sana con un recubrimiento libre de PFOA, disfruta del mango extraíble de un clic, ahorra espacio con su diseño apilable y úsalo en cualquier fuente de calor: inducción, gas, placas eléctricas y vitrocerámica.",
+    descriptionBlocks: [
+      {
+        title: "Antiadherente premium y saludable",
+        body: "Cocina de forma más sana gracias a un recubrimiento de alto rendimiento libre de PFOA y materiales tóxicos. Diseñado para que nada se pegue, facilitando una limpieza impecable en segundos.",
+      },
+      {
+        title: "Mango extraíble de vanguardia",
+        body: "Máxima seguridad con un sistema de bloqueo ultraestable que te permite cocinar con total confianza y quitar el mango con un solo clic.",
+      },
+      {
+        title: "Ahorro inteligente de espacio",
+        body: "El diseño desmontable y apilable optimiza el almacenamiento en tus armarios.",
+      },
+      {
+        title: "Máxima compatibilidad y eficiencia",
+        body: "Diseñado para calentarse de manera uniforme y rápida en cualquier fuente de calor, incluyendo inducción, gas, placas eléctricas y vitrocerámica.",
+      },
+    ],
+    highlights: [
+      "Libre de PFOA",
+      "Mango extraíble con un clic",
+      "Apto para inducción",
+      "Apilable y desmontable",
+    ],
+    coverImage: "/productos/olla-cara/79e2f04c-b983-439e-bdfc-a7dea4094566.jpeg",
     images: [
-      "/productos/olla-cara/0817AC66-CBC7-4894-BA53-3404C5516451.JPG.jpeg",
-      "/productos/olla-cara/2B20910B-D64C-42D1-86CE-91A57D11DF39.JPG.jpeg",
-      "/productos/olla-cara/702820C8-1130-47D4-9FED-1F87AD6B7873.PNG",
-      "/productos/olla-cara/8036A1A9-027C-46E9-AF08-7BAB281357D1.JPG.jpeg",
-      "/productos/olla-cara/A00B3118-B46D-4765-A8DA-00FF219031D7.JPG.jpeg",
-      "/productos/olla-cara/D7F66B68-8F8A-466C-B31B-D44F2B70761A.JPG.jpeg",
-      "/productos/olla-cara/EDCCA56B-194A-4E21-8BAD-18716E267AEC.JPG.jpeg",
+      "/productos/olla-cara/79e2f04c-b983-439e-bdfc-a7dea4094566.jpeg",
+      "/productos/olla-cara/c7506439-ef13-419d-8617-714028c5e58e.jpeg",
+      "/productos/olla-cara/ce50414e-bcf1-4e40-adb1-bd6d04236255.jpeg",
+      "/productos/olla-cara/bb8b6e00-fcf5-4507-bf4c-8c8b3f77a6cf.jpeg",
+      "/productos/olla-cara/b29c330d-4b29-4f0c-ba96-82aff521fb20.jpeg",
+      "/productos/olla-cara/1907fda9-4415-41f1-b6a7-911599f9028c.jpeg",
+      "/productos/olla-cara/e88fa900-df73-48c2-9cec-91f02fec2438.jpeg",
+      "/productos/olla-cara/642cd924-e22a-432e-a72f-6b35126da9af.jpeg",
     ],
   },
   {

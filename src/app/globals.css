@@ -1263,6 +1263,38 @@ select:focus-visible,
   color: var(--color-muted);
 }
 
+/* Descripción estructurada por bloques (títulos + cuerpo) */
+.detail-description {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+  margin-top: 6px;
+}
+
+.detail-description-block {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  padding: 14px 16px;
+  border-left: 3px solid var(--color-primary);
+  border-radius: 4px;
+  background: rgba(255, 255, 255, 0.56);
+}
+
+.detail-description-block h3 {
+  margin: 0;
+  font-size: 0.92rem;
+  font-weight: 700;
+  letter-spacing: 0.01em;
+  color: var(--color-text);
+}
+
+.detail-description-block p {
+  margin: 0;
+  line-height: 1.55;
+  color: var(--color-muted);
+}
+
 .detail-highlights {
   display: flex;
   flex-wrap: wrap;
