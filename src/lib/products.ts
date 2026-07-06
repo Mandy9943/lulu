@@ -28,8 +28,14 @@ export interface ColorVariant {
   images: string[];
   /** Video opcional para este color (ruta desde /public) */
   video?: string;
-  /** Si está agotado, este color no se puede comprar. */
-  outOfStock?: boolean;
+  /**
+   * Stock disponible para esta variante.
+   * - 0: agotado (no se puede comprar).
+   * - 1: última unidad (muestra badge "Última unidad").
+   * - 2+: stock suficiente (sin badge).
+   * - undefined: stock sin control (se considera disponible).
+   */
+  stock?: number;
 }
 
 export interface Product {
@@ -85,14 +91,17 @@ export interface Product {
    */
   colorVariants?: ColorVariant[];
   /**
-   * Si está agotado, el producto no se puede comprar.
-   * - En la card: badge "Agotado" + botón deshabilitado.
-   * - En el detalle: contenido visible, CTA deshabilitado.
-   * - En el carrito: bloquea el checkout hasta quitarlo.
-   * Si una variante específica también está agotada, esa variante
-   * queda deshabilitada aunque el producto esté disponible.
+   * Stock disponible del producto.
+   * - 0: agotado (muestra badge "Agotado" + CTA deshabilitado,
+   *   bloquea el checkout hasta quitarlo del carrito).
+   * - 1: última unidad (muestra banda "Última unidad" en la card
+   *   y pill naranja en el detalle; el botón sigue activo).
+   * - 2+: stock suficiente (sin badge).
+   * - undefined: stock sin control, se considera disponible.
+   * Si una variante específica tiene `stock` definido, manda sobre
+   * el stock global cuando se evalúa esa variante puntual.
    */
-  outOfStock?: boolean;
+  stock?: number;
   /**
    * Si es false, oculta el contador regresivo aunque el producto
    * tenga `originalPrice` definido. Default: true (lo muestra).
@@ -148,6 +157,7 @@ export const products: Product[] = [
     category: "Cocina",
     type: "ollas",
     badge: "Nuevo",
+    stock: 1,
     variant: "Antiadherente premium con mango desmontable",
     shortDescription:
       "Juego premium de aluminio con mango extraíble, antiadherente libre de PFOA y apilable.",
@@ -203,7 +213,7 @@ export const products: Product[] = [
     category: "Cocina",
     type: "ollas",
     badge: "Favorito",
-    outOfStock: true,
+    stock: 0,
     variant: "Set compacto de 5 piezas",
     shortDescription:
       "Ollas apilables en tono marfil para una cocina luminosa, práctica y ordenada.",
@@ -314,7 +324,7 @@ export const products: Product[] = [
     type: "sartenes",
     badge: "Estrella",
     variant: "Horno eléctrico + bifera + cafetera de goteo",
-    outOfStock: true,
+    stock: 0,
     shortDescription:
       "Tostá, cociná y preparás café en un solo equipo compacto y con mucho encanto.",
     description:
@@ -332,7 +342,7 @@ export const products: Product[] = [
         images: [
           "/productos/estacion-desayuno-3en1/estacion-desayuno-3en1-1.jpeg",
         ],
-        outOfStock: true,
+        stock: 0,
       },
       {
         label: "Negro",
@@ -340,7 +350,7 @@ export const products: Product[] = [
         // Guardá la foto negra en: public/productos/estacion-desayuno-3en1/estacion-negro-1.jpeg
         images: ["/productos/estacion-desayuno-3en1/estacion-negro-1.jpeg"],
         video: "/productos/estacion-desayuno-3en1/estacion-negro.mp4",
-        outOfStock: true,
+        stock: 0,
       },
     ],
   },
@@ -438,7 +448,7 @@ export const products: Product[] = [
       "Un set de tres toallas presentado en caja con bolsa de regalo: una opción simple y prolija para obsequiar o para renovar tus toallas con estilo.",
     highlights: ["3 piezas", "Caja y bolsa de regalo", "Listo para regalar"],
     images: ["/productos/set-toallas-regalo/set-toallas-regalo-1.jpeg"],
-    outOfStock: true,
+    stock: 0,
   },
   {
     // Producto nuevo · agregar más imágenes a futuro en public/productos/taza-cafe-viaje/
@@ -490,15 +500,33 @@ export function getAllSlugs(): string[] {
 
 /**
  * ¿El producto está disponible para comprar (a nivel global)?
- * Un producto agotado bloquea TODAS sus variantes.
+ * Un producto agotado (stock === 0) bloquea TODAS sus variantes.
+ * Si `stock` no está definido, se considera disponible.
  */
 export function isProductAvailable(product: Product): boolean {
-  return !product.outOfStock;
+  return (product.stock ?? 1) > 0;
 }
 
 /** ¿Esta variante puntual está disponible? */
 export function isVariantAvailable(variant: ColorVariant): boolean {
-  return !variant.outOfStock;
+  return (variant.stock ?? 1) > 0;
+}
+
+/**
+ * ¿Este producto / variante es la "última unidad" disponible?
+ * - Devuelve true solo si el stock efectivo es exactamente 1.
+ * - Si el producto está agotado (stock === 0) devuelve false: prima el
+ *   badge de "Agotado" sobre el de "Última unidad".
+ * - Si el producto tiene `colorVariants`, se considera `variantLabel`
+ *   para resolver el stock de la variante puntual.
+ */
+export function isLastUnit(product: Product, variantLabel?: string): boolean {
+  const variant = product.colorVariants
+    ? (product.colorVariants.find((v) => v.label === variantLabel) ??
+      product.colorVariants[0])
+    : undefined;
+  const effectiveStock = variant?.stock ?? product.stock;
+  return effectiveStock === 1;
 }
 
 /**

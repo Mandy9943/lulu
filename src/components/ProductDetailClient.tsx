@@ -9,6 +9,7 @@ import { formatPrice } from "@/lib/format";
 import {
   getMpPrice,
   getVariantAvailability,
+  isLastUnit,
   isProductAvailable,
   type Product,
 } from "@/lib/products";
@@ -22,7 +23,7 @@ export function ProductDetailClient({ product }: { product: Product }) {
   // para que el swatch seleccionado no quede bloqueado al cargar.
   const initialIdx = (() => {
     if (!colorVariants) return 0;
-    const firstAvailable = colorVariants.findIndex((v) => !v.outOfStock);
+    const firstAvailable = colorVariants.findIndex((v) => (v.stock ?? 1) > 0);
     return firstAvailable === -1 ? 0 : firstAvailable;
   })();
   const [selectedIdx, setSelectedIdx] = useState(initialIdx);
@@ -46,6 +47,7 @@ export function ProductDetailClient({ product }: { product: Product }) {
   const productOutOfStock = !isProductAvailable(product);
   const activeOutOfStock = !getVariantAvailability(product, activeVariantLabel);
   const outOfStock = productOutOfStock || activeOutOfStock;
+  const lastUnit = !outOfStock && isLastUnit(product, activeVariantLabel);
 
   return (
     <div className="detail-layout">
@@ -58,6 +60,12 @@ export function ProductDetailClient({ product }: { product: Product }) {
       <div className="detail-copy">
         <div className="detail-pills">
           {product.badge && <span className="pill">{product.badge}</span>}
+          {lastUnit && (
+            <span className="pill pill--urgent">
+              <Icon name="local_fire_department" />
+              Última unidad
+            </span>
+          )}
           {outOfStock && (
             <span className="pill pill--out">
               <Icon name="block" />
@@ -132,7 +140,7 @@ export function ProductDetailClient({ product }: { product: Product }) {
             </p>
             <div className="color-swatches" role="group" aria-label="Color">
               {colorVariants.map((v, i) => {
-                const variantOut = productOutOfStock || !!v.outOfStock;
+                const variantOut = productOutOfStock || (v.stock ?? 1) === 0;
                 const isSelected = i === selectedIdx;
                 return (
                   <button

@@ -1240,6 +1240,67 @@ select:focus-visible,
   line-height: 1;
 }
 
+/* Última unidad — banda inferior en card + pill en detalle */
+.stock-band {
+  position: absolute;
+  bottom: 10px;
+  left: 10px;
+  right: 10px;
+  z-index: 2;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  padding: 6px 12px;
+  border-radius: 999px;
+  background: linear-gradient(135deg, #ff8a3d 0%, #ff5e3a 100%);
+  color: #fff;
+  font-size: 0.7rem;
+  font-weight: 800;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  box-shadow: 0 4px 14px rgba(255, 94, 58, 0.4);
+  animation: stock-band-pulse 2.4s ease-in-out infinite;
+}
+
+.stock-band .material-symbols-outlined {
+  font-size: 14px;
+  line-height: 1;
+  font-variation-settings:
+    "FILL" 1,
+    "wght" 500,
+    "GRAD" 0,
+    "opsz" 20;
+}
+
+@keyframes stock-band-pulse {
+  0%,
+  100% {
+    transform: scale(1);
+    box-shadow: 0 4px 14px rgba(255, 94, 58, 0.4);
+  }
+  50% {
+    transform: scale(1.025);
+    box-shadow: 0 6px 20px rgba(255, 94, 58, 0.55);
+  }
+}
+
+.pill--urgent {
+  background: linear-gradient(135deg, #ff8a3d 0%, #ff5e3a 100%);
+  color: #fff;
+  box-shadow: 0 4px 14px rgba(255, 94, 58, 0.32);
+}
+
+.pill--urgent .material-symbols-outlined {
+  font-size: 14px;
+  line-height: 1;
+  font-variation-settings:
+    "FILL" 1,
+    "wght" 500,
+    "GRAD" 0,
+    "opsz" 20;
+}
+
 .cart-line-out {
   display: inline-flex;
   align-items: center;
@@ -1923,6 +1984,14 @@ select:focus-visible,
     max-width: calc(100% - 16px);
     padding: 3px 7px;
     font-size: 0.52rem;
+  }
+
+  .stock-band {
+    bottom: 8px;
+    left: 8px;
+    right: 8px;
+    padding: 5px 10px;
+    font-size: 0.62rem;
   }
 
   .product-meta {

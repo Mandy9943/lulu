@@ -6,6 +6,7 @@ import { formatPrice } from "@/lib/format";
 import {
   getCover,
   getMpPrice,
+  isLastUnit,
   isProductAvailable,
   type Product,
 } from "@/lib/products";
@@ -25,6 +26,7 @@ export function ProductCard({ product, priority = false }: Props) {
     typeof product.originalPrice === "number" &&
     product.originalPrice > product.price;
   const outOfStock = !isProductAvailable(product);
+  const lastUnit = !outOfStock && isLastUnit(product);
 
   return (
     <article
@@ -48,6 +50,12 @@ export function ProductCard({ product, priority = false }: Props) {
         {hasDiscount && product.discountPercent !== undefined && (
           <span className="discount-badge">
             -{product.discountPercent}% OFF
+          </span>
+        )}
+        {lastUnit && (
+          <span className="stock-band" aria-label="Última unidad disponible">
+            <Icon name="local_fire_department" />
+            Última unidad
           </span>
         )}
         {outOfStock && (
