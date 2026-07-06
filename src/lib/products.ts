@@ -113,7 +113,7 @@ export interface Product {
 export const products: Product[] = [
   {
     slug: "utensilios-silicona",
-    name: "Set de menaje de silicona con soporte - 15 piezas",
+    name: "Set de utensilios de cocina con soporte - 14 piezas.",
     price: 530,
     originalPrice: 690,
     discountPercent: 23,
@@ -128,6 +128,28 @@ export const products: Product[] = [
       "Piezas esenciales para cocinar, servir y mantener todo a mano.",
     description:
       "Un set completo para el día a día: cuida tus ollas y sartenes, se guarda fácil en su soporte y aporta un toque cálido sin recargar la mesada.",
+    descriptionBlocks: [
+      {
+        title: "Silicona premium resistente al calor",
+        body: "Hechos de silicona premium con alta resistencia al calor hasta 230º, para saltear, servir y hornear con total confianza.",
+      },
+      {
+        title: "Cuida tus sartenes",
+        body: "No se dobla, no raya tus sartenes ni superficies antiadherentes. Mantiene tus piezas como nuevas por más tiempo.",
+      },
+      {
+        title: "Apto para uso alimentario",
+        body: "Material 100% apto para uso alimentario y libre de BPA, para cocinar tranquilo en cualquier receta.",
+      },
+      {
+        title: "Mango ergonómico y durable",
+        body: "Mango ergonómico de construcción robusta que garantiza la durabilidad a largo plazo, incluso con el uso diario.",
+      },
+      {
+        title: "Todo lo que necesitás en la cocina",
+        body: "Cubre todas las necesidades culinarias, desde hornear hasta saltear, manteniendo la estética y organización de la cocina.",
+      },
+    ],
     highlights: [
       "Soporte incluido",
       "Silicona resistente al calor",
