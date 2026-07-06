@@ -93,6 +93,12 @@ export interface Product {
    * queda deshabilitada aunque el producto esté disponible.
    */
   outOfStock?: boolean;
+  /**
+   * Si es false, oculta el contador regresivo aunque el producto
+   * tenga `originalPrice` definido. Default: true (lo muestra).
+   * Útil para excluir productos puntuales de la promo universal.
+   */
+  showCountdown?: boolean;
 }
 
 export const products: Product[] = [
@@ -100,8 +106,11 @@ export const products: Product[] = [
     slug: "utensilios-silicona",
     name: "Set de menaje de silicona con soporte - 15 piezas",
     price: 530,
+    originalPrice: 690,
+    discountPercent: 23,
     // TODO mpPrice: confirmar valor real. Placeholder: price * 1.086
     mpPrice: 576.27,
+    showCountdown: false,
     category: "Cocina",
     type: "utensilios",
     badge: "Más elegido",
@@ -180,6 +189,7 @@ export const products: Product[] = [
       "/productos/olla-cara/e88fa900-df73-48c2-9cec-91f02fec2438.jpeg",
       "/productos/olla-cara/642cd924-e22a-432e-a72f-6b35126da9af.jpeg",
     ],
+    showCountdown: true,
   },
   {
     slug: "ollas-blancas-desmontables",
@@ -189,6 +199,7 @@ export const products: Product[] = [
     mpPrice: 3464,
     originalPrice: 3990,
     discountPercent: 20,
+    showCountdown: false,
     category: "Cocina",
     type: "ollas",
     badge: "Favorito",
@@ -219,8 +230,11 @@ export const products: Product[] = [
     slug: "sarten-cuatro-cavidades",
     name: "Sartén de cerámica con 4 cavidades - mango madera",
     price: 530,
+    originalPrice: 690,
+    discountPercent: 23,
     // TODO mpPrice: confirmar valor real. Placeholder: price * 1.086
     mpPrice: 576.27,
+    showCountdown: false,
     category: "Cocina",
     type: "sartenes",
     badge: "Desayunos",
@@ -252,8 +266,11 @@ export const products: Product[] = [
     slug: "sarten-grill-cuadrado",
     name: "Bifera antiadherente de cerámica - mango de madera",
     price: 590,
+    originalPrice: 790,
+    discountPercent: 25,
     // TODO mpPrice: confirmar valor real. Placeholder: price * 1.086
     mpPrice: 641.51,
+    showCountdown: false,
     category: "Cocina",
     type: "sartenes",
     badge: "Top cocina",
@@ -292,6 +309,7 @@ export const products: Product[] = [
     mpPrice: 2163,
     originalPrice: 3290,
     discountPercent: 21,
+    showCountdown: false,
     category: "Desayuno",
     type: "sartenes",
     badge: "Estrella",
@@ -331,8 +349,11 @@ export const products: Product[] = [
     slug: "sarten-ceramica-2en1",
     name: "Sartén de cerámica 2 en 1 - bifera y cavidades",
     price: 590,
+    originalPrice: 790,
+    discountPercent: 25,
     // TODO mpPrice: confirmar valor real. Placeholder: price * 1.086
     mpPrice: 641,
+    showCountdown: false,
     category: "Cocina",
     type: "sartenes",
     variant: "Cerámica antiadherente con mango de madera",
@@ -356,6 +377,7 @@ export const products: Product[] = [
     mpPrice: 924.21,
     originalPrice: 1190,
     discountPercent: 25,
+    showCountdown: false,
     category: "Accesorios",
     type: "accesorios",
     variant: "Acero inoxidable con dos divisiones",
@@ -377,8 +399,11 @@ export const products: Product[] = [
     slug: "vaso-termico-led",
     name: "Vaso térmico con control de temperatura led - 450ml",
     price: 400,
+    originalPrice: 550,
+    discountPercent: 27,
     // TODO mpPrice: confirmar valor real. Placeholder: price * 1.086
     mpPrice: 434.92,
+    showCountdown: false,
     category: "Accesorios",
     type: "accesorios",
     badge: "Nuevo",
@@ -399,8 +424,11 @@ export const products: Product[] = [
     slug: "set-toallas-regalo",
     name: "Set de toallas 3 piezas - con caja y bolsa de regalo",
     price: 490,
+    originalPrice: 690,
+    discountPercent: 28,
     // TODO mpPrice: confirmar valor real. Placeholder: price * 1.086
     mpPrice: 532,
+    showCountdown: false,
     category: "Accesorios",
     type: "accesorios",
     variant: "3 piezas con caja y bolsa de regalo",
@@ -417,8 +445,11 @@ export const products: Product[] = [
     slug: "taza-cafe-viaje",
     name: "Taza de café hermético para viaje - 400ml",
     price: 190,
+    originalPrice: 290,
+    discountPercent: 34,
     // TODO mpPrice: confirmar valor real. Placeholder: price * 1.086
     mpPrice: 206,
+    showCountdown: false,
     category: "Accesorios",
     type: "accesorios",
     variant: "400 ml hermética para llevar",

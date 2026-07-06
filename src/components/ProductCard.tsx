@@ -1,4 +1,5 @@
 import { AddToCartButton } from "@/components/AddToCartButton";
+import { CountdownTimer } from "@/components/CountdownTimer";
 import { Icon } from "@/components/Icon";
 import { InstallmentsHint } from "@/components/InstallmentsHint";
 import { formatPrice } from "@/lib/format";
@@ -8,6 +9,7 @@ import {
   isProductAvailable,
   type Product,
 } from "@/lib/products";
+import { PROMO_END_DATE } from "@/lib/promo";
 import { FREE_SHIPPING_THRESHOLD } from "@/lib/site";
 import Image from "next/image";
 import Link from "next/link";
@@ -80,6 +82,11 @@ export function ProductCard({ product, priority = false }: Props) {
             outOfStock={outOfStock}
           />
         </div>{" "}
+        {hasDiscount && product.showCountdown !== false && (
+          <div className="product-card-countdown-wrap">
+            <CountdownTimer targetDate={PROMO_END_DATE} variant="card" />
+          </div>
+        )}{" "}
         <InstallmentsHint price={getMpPrice(product)} variant="inline" />{" "}
         {product.price > FREE_SHIPPING_THRESHOLD && (
           <span className="shipping-badge">

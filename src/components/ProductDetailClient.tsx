@@ -1,6 +1,7 @@
 "use client";
 
 import { AddToCartButton } from "@/components/AddToCartButton";
+import { CountdownTimer } from "@/components/CountdownTimer";
 import { Icon } from "@/components/Icon";
 import { InstallmentsHint } from "@/components/InstallmentsHint";
 import { ProductGallery } from "@/components/ProductGallery";
@@ -11,6 +12,7 @@ import {
   isProductAvailable,
   type Product,
 } from "@/lib/products";
+import { PROMO_END_DATE } from "@/lib/promo";
 import { FREE_SHIPPING_THRESHOLD } from "@/lib/site";
 import { useState } from "react";
 
@@ -80,6 +82,13 @@ export function ProductDetailClient({ product }: { product: Product }) {
             </>
           )}
         </div>
+        {hasDiscount && product.showCountdown !== false && (
+          <CountdownTimer
+            targetDate={PROMO_END_DATE}
+            variant="detail"
+            label="Oferta termina en"
+          />
+        )}
         {product.price > FREE_SHIPPING_THRESHOLD && (
           <p className="shipping-note">
             <Icon name="local_shipping" />

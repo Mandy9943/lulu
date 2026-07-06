@@ -927,6 +927,96 @@ select:focus-visible,
 }
 
 /* ----------------------------------------------------------------------------
+   Countdown timer (promo)
+---------------------------------------------------------------------------- */
+.countdown {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.countdown-label {
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--color-primary);
+}
+
+.countdown-cells {
+  display: inline-flex;
+  align-items: stretch;
+  gap: 4px;
+  font-variant-numeric: tabular-nums;
+}
+
+.countdown-cell {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-width: 32px;
+  padding: 6px 4px;
+  border-radius: 8px;
+  background: var(--color-primary-soft);
+  color: var(--color-primary);
+  line-height: 1.05;
+}
+
+.countdown-cell strong {
+  font-size: 0.92rem;
+  font-weight: 800;
+  color: var(--color-primary);
+}
+
+.countdown-cell span {
+  margin-top: 2px;
+  font-size: 0.55rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--color-muted);
+}
+
+.countdown-sep {
+  align-self: center;
+  font-size: 0.9rem;
+  font-weight: 800;
+  color: var(--color-primary);
+  opacity: 0.7;
+  padding: 0 1px;
+}
+
+.countdown--detail .countdown-label {
+  font-size: 0.78rem;
+}
+
+.countdown--detail .countdown-cell {
+  min-width: 52px;
+  padding: 10px 6px;
+  border-radius: 10px;
+}
+
+.countdown--detail .countdown-cell strong {
+  font-size: 1.35rem;
+}
+
+.countdown--detail .countdown-cell span {
+  margin-top: 4px;
+  font-size: 0.62rem;
+}
+
+.countdown--detail .countdown-sep {
+  font-size: 1.2rem;
+  padding: 0 2px;
+}
+
+.product-card-countdown-wrap {
+  width: 100%;
+  padding-top: 10px;
+}
+
+/* ----------------------------------------------------------------------------
    Product detail
 ---------------------------------------------------------------------------- */
 .product-detail {
@@ -1857,6 +1947,33 @@ select:focus-visible,
 
   .product-card-footer strong {
     font-size: 0.88rem;
+  }
+
+  .product-card-countdown-wrap {
+    padding-top: 8px;
+  }
+
+  /* Compact card countdown on mobile: keep all 4 cells + separators,
+     shrink them tightly so they fit in narrow cards. */
+  .product-card-countdown-wrap .countdown-cells {
+    gap: 3px;
+  }
+
+  .product-card-countdown-wrap .countdown-cell {
+    min-width: 24px;
+    padding: 4px 4px;
+  }
+
+  .product-card-countdown-wrap .countdown-cell strong {
+    font-size: 0.82rem;
+  }
+
+  .product-card-countdown-wrap .countdown-cell span {
+    font-size: 0.5rem;
+  }
+
+  .product-card-countdown-wrap .countdown-sep {
+    font-size: 0.72rem;
   }
 
   .quick-add {
