@@ -260,7 +260,7 @@ export const products: Product[] = [
   },
   {
     slug: "sarten-cuatro-cavidades",
-    name: "Sartén de cerámica con 4 cavidades - mango madera",
+    name: "Sarten antiadherente de aleación de aluminio con 4 orificios para huevos, panqueques y hamburguesas.",
     price: 530,
     originalPrice: 690,
     discountPercent: 23,
@@ -275,6 +275,32 @@ export const products: Product[] = [
       "Ideal para huevos, pancakes y porciones parejas sin ensuciar de más.",
     description:
       "Una pieza práctica para desayunos y meriendas más prolijas. Sus cuatro cavidades ayudan a cocinar porciones uniformes, servir mejor y ganar tiempo.",
+    descriptionBlocks: [
+      {
+        title: "Diseño de 4 cavidades",
+        body: "Sartén antiadherente de aleación de aluminio con 4 orificios para huevos, panqueques y hamburguesas. Perfecta para cocinar varias porciones simultáneamente y servir todo junto, en su punto y bien presentado.",
+      },
+      {
+        title: "Recubrimiento Piedra Maifan",
+        body: "Recubrimiento de Piedra Maifan: ecológico y duradero, garantizando un rendimiento antiadherente superior que cuida tus preparaciones.",
+      },
+      {
+        title: "Calentamiento rápido y uniforme",
+        body: "Distribución uniforme del calor con capacidad de calentamiento rápido que ahorra energía y conserva los nutrientes de los alimentos.",
+      },
+      {
+        title: "Compatible con gas e inducción",
+        body: "Apta para varios métodos de cocción: funciona en cocina a gas y en placas de inducción sin perder rendimiento.",
+      },
+      {
+        title: "Aleación de aluminio durable",
+        body: "Material de aleación de aluminio resistente para un uso prolongado y un calentamiento parejo en cada cocción.",
+      },
+      {
+        title: "Fácil de limpiar",
+        body: "Material antiadherente que cocina y se limpia rápidamente, para que solo te ocupes de disfrutar el desayuno.",
+      },
+    ],
     highlights: [
       "Cuatro porciones a la vez",
       "Fácil de limpiar",
