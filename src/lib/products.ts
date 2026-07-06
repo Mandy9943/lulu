@@ -260,7 +260,7 @@ export const products: Product[] = [
   },
   {
     slug: "sarten-cuatro-cavidades",
-    name: "Sarten antiadherente de aleación de aluminio con 4 orificios para huevos, panqueques y hamburguesas.",
+    name: "Sartén de cerámica con 4 cavidades - mango madera.",
     price: 530,
     originalPrice: 690,
     discountPercent: 23,
