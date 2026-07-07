@@ -1,11 +1,16 @@
 "use client";
 
-import { useMemo, useState } from "react";
-import { ProductCard } from "@/components/ProductCard";
 import { Icon } from "@/components/Icon";
+import { ProductCard } from "@/components/ProductCard";
 import type { Product } from "@/lib/products";
+import { useMemo, useState } from "react";
 
-type SortMode = "featured" | "price-asc" | "price-desc" | "photos-desc";
+type SortMode =
+  | "featured"
+  | "price-asc"
+  | "price-desc"
+  | "photos-desc"
+  | "stock-first";
 
 type FilterGroup = {
   id: string;
@@ -54,7 +59,7 @@ function searchText(product: Product): string {
 export function Catalog({ products }: { products: Product[] }) {
   const [activeFilter, setActiveFilter] = useState("all");
   const [query, setQuery] = useState("");
-  const [sortMode, setSortMode] = useState<SortMode>("featured");
+  const [sortMode, setSortMode] = useState<SortMode>("stock-first");
 
   const visible = useMemo(() => {
     const group =
@@ -68,6 +73,14 @@ export function Catalog({ products }: { products: Product[] }) {
         if (sortMode === "price-desc") return b.price - a.price;
         if (sortMode === "photos-desc")
           return b.images.length - a.images.length;
+        if (sortMode === "stock-first") {
+          // Disponibles primero (undefined o > 0), agotados al final;
+          // dentro de cada grupo, mantiene el orden de destacados.
+          const aOut = a.stock === 0 ? 1 : 0;
+          const bOut = b.stock === 0 ? 1 : 0;
+          if (aOut !== bOut) return aOut - bOut;
+          return products.indexOf(a) - products.indexOf(b);
+        }
         return products.indexOf(a) - products.indexOf(b);
       });
   }, [products, activeFilter, query, sortMode]);
@@ -79,7 +92,7 @@ export function Catalog({ products }: { products: Product[] }) {
   function clearFilters() {
     setActiveFilter("all");
     setQuery("");
-    setSortMode("featured");
+    setSortMode("stock-first");
   }
 
   return (
@@ -133,6 +146,7 @@ export function Catalog({ products }: { products: Product[] }) {
             value={sortMode}
             onChange={(event) => setSortMode(event.target.value as SortMode)}
           >
+            <option value="stock-first">Disponibles primero</option>
             <option value="featured">Destacados</option>
             <option value="price-asc">Menor precio</option>
             <option value="price-desc">Mayor precio</option>
