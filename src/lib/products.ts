@@ -179,7 +179,7 @@ export const products: Product[] = [
     category: "Cocina",
     type: "ollas",
     badge: "Nuevo",
-    stock: 1,
+    stock: 0,
     variant: "Antiadherente premium con mango desmontable",
     shortDescription:
       "Juego premium de aluminio con mango extraíble, antiadherente libre de PFOA y apilable.",
@@ -221,7 +221,7 @@ export const products: Product[] = [
       "/productos/olla-cara/e88fa900-df73-48c2-9cec-91f02fec2438.jpeg",
       "/productos/olla-cara/642cd924-e22a-432e-a72f-6b35126da9af.jpeg",
     ],
-    showCountdown: true,
+    showCountdown: false,
   },
   {
     slug: "ollas-blancas-desmontables",
