@@ -21,7 +21,15 @@ type Props = {
 };
 
 export function ProductCard({ product, priority = false }: Props) {
-  const photoLabel = product.images.length === 1 ? "foto" : "fotos";
+  // Cuenta también las imágenes declaradas dentro de `colorVariants`,
+  // porque algunos productos (con selector de color) tienen `images: []`
+  // a nivel raíz pero las fotos viven agrupadas por variante.
+  const variantPhotos = (product.colorVariants ?? []).reduce(
+    (acc, v) => acc + v.images.length,
+    0,
+  );
+  const photoCount = product.images.length + variantPhotos;
+  const photoLabel = photoCount === 1 ? "foto" : "fotos";
   const hasDiscount =
     typeof product.originalPrice === "number" &&
     product.originalPrice > product.price;
@@ -69,7 +77,7 @@ export function ProductCard({ product, priority = false }: Props) {
         <p className="product-meta">
           <span>{product.category}</span>
           <span>
-            {product.images.length} {photoLabel}
+            {photoCount} {photoLabel}
           </span>
         </p>
         <h3>

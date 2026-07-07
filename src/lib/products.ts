@@ -299,7 +299,7 @@ export const products: Product[] = [
     shortDescription:
       "Sarten antiadherente de Piedra Maifan y aleación de aluminio con 4 orificios para huevos, panqueques y hamburguesas.",
     description:
-      "Sarten antiadherente de Piedra Maifan y aleación de aluminio con 4 orificios para huevos, panqueques y hamburguesas.",
+      "Sartén antiadherente de Piedra Maifan y aleación de aluminio con 4 orificios para huevos, panqueques y hamburguesas.",
     descriptionBlocks: [
       {
         title: "Diseño de 4 cavidades",
