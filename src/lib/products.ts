@@ -156,16 +156,41 @@ export const products: Product[] = [
       "Cuida superficies antiadherentes",
     ],
     coverImage:
-      "/productos/cubiertos/3A33C539-5DFB-4FF7-90EB-D8B054A42139.JPG.jpeg",
-    images: [
-      "/productos/cubiertos/207F835B-17CD-44EE-B1D1-842756CDB92E.JPG.jpeg",
-      "/productos/cubiertos/2273C486-2A14-4D89-B79B-E2B7C926DE03.JPG.jpeg",
-      "/productos/cubiertos/3A33C539-5DFB-4FF7-90EB-D8B054A42139.JPG.jpeg",
-      "/productos/cubiertos/4EDDA583-00FC-44A6-819F-BA3A13B55774.JPG.jpeg",
-      "/productos/cubiertos/6A19AEA0-CF83-4D4F-A4ED-15F77FDCE716.JPG.jpeg",
-      "/productos/cubiertos/A326D168-9623-447E-A99E-89EFE26761E3.JPG.jpeg",
-      "/productos/cubiertos/B9E06972-696F-4CFA-AA68-8D8A9584C7EB.JPG.jpeg",
-      "/productos/cubiertos/E07D1865-D9A1-48F7-AF20-77DC5BDB0FC2.JPG.jpeg",
+      "/productos/cubiertos/2cfcda06-6270-4cac-93d3-0229e9166b1e.jpeg",
+    images: [],
+    video: "/productos/cubiertos/WhatsApp Video 2026-07-02 at 14.17.55.mp4",
+    colorVariants: [
+      {
+        label: "Rosa",
+        hex: "#F4A7B9",
+        images: [
+          "/productos/cubiertos/5c81d053-61c9-4a6a-94e9-361b68cb79d5.jpeg",
+          "/productos/cubiertos/2cfcda06-6270-4cac-93d3-0229e9166b1e.jpeg",
+          "/productos/cubiertos/d55dcda2-8a41-42a9-bd97-54cb3b343f6a.jpeg",
+        ],
+        stock: 0,
+        video: "/productos/cubiertos/WhatsApp Video 2026-07-02 at 14.17.55.mp4",
+      },
+      {
+        label: "Gris",
+        hex: "#7A7A7A",
+        images: [
+          "/productos/cubiertos/d1d9b523-5e86-4d5d-aa93-e927a18db053.jpeg",
+          "/productos/cubiertos/2cfcda06-6270-4cac-93d3-0229e9166b1e.jpeg",
+          "/productos/cubiertos/d55dcda2-8a41-42a9-bd97-54cb3b343f6a.jpeg",
+        ],
+        video: "/productos/cubiertos/WhatsApp Video 2026-07-02 at 14.17.55.mp4",
+      },
+      {
+        label: "Blanco",
+        hex: "#F3EFE6",
+        images: [
+          "/productos/cubiertos/f5712c07-56f5-4b57-9d43-e2ebe16f4e69.jpeg",
+          "/productos/cubiertos/2cfcda06-6270-4cac-93d3-0229e9166b1e.jpeg",
+          "/productos/cubiertos/d55dcda2-8a41-42a9-bd97-54cb3b343f6a.jpeg",
+        ],
+        video: "/productos/cubiertos/WhatsApp Video 2026-07-02 at 14.17.55.mp4",
+      },
     ],
   },
   {

@@ -33,13 +33,13 @@ export function ProductGallery({
 
   const images = imagesProp ?? product.images;
 
-  // video primero, luego imágenes
+  // imágenes primero, video al final
   type MediaItem =
     | { type: "video"; src: string }
     | { type: "image"; src: string };
   const media: MediaItem[] = [
-    ...(video ? [{ type: "video" as const, src: video }] : []),
     ...images.map((src) => ({ type: "image" as const, src })),
+    ...(video ? [{ type: "video" as const, src: video }] : []),
   ];
   const total = media.length;
   const current = media[index] ?? media[0];
