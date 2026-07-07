@@ -297,9 +297,9 @@ export const products: Product[] = [
     badge: "Desayunos",
     variant: "Antiadherente efecto piedra",
     shortDescription:
-      "Ideal para huevos, pancakes y porciones parejas sin ensuciar de más.",
+      "Sarten antiadherente de Piedra Maifan y aleación de aluminio con 4 orificios para huevos, panqueques y hamburguesas.",
     description:
-      "Una pieza práctica para desayunos y meriendas más prolijas. Sus cuatro cavidades ayudan a cocinar porciones uniformes, servir mejor y ganar tiempo.",
+      "Sarten antiadherente de Piedra Maifan y aleación de aluminio con 4 orificios para huevos, panqueques y hamburguesas.",
     descriptionBlocks: [
       {
         title: "Diseño de 4 cavidades",
@@ -318,10 +318,6 @@ export const products: Product[] = [
         body: "Apta para varios métodos de cocción: funciona en cocina a gas y en placas de inducción sin perder rendimiento.",
       },
       {
-        title: "Aleación de aluminio durable",
-        body: "Material de aleación de aluminio resistente para un uso prolongado y un calentamiento parejo en cada cocción.",
-      },
-      {
         title: "Fácil de limpiar",
         body: "Material antiadherente que cocina y se limpia rápidamente, para que solo te ocupes de disfrutar el desayuno.",
       },
@@ -333,16 +329,31 @@ export const products: Product[] = [
     ],
     coverImage:
       "/productos/sarten-forma/72FCDAA3-BA35-4427-B310-90C4D2950F8F.JPG.jpeg",
-    images: [
-      "/productos/sarten-forma/22A6887B-78F5-46D9-B1DF-3233235506E9.JPG.jpeg",
-      "/productos/sarten-forma/244774E0-A870-4B4B-A9BB-B536BFFCB5E7.PNG",
-      "/productos/sarten-forma/31469175-72AA-4DC0-A5FB-6662877FBB7C.JPG.jpeg",
-      "/productos/sarten-forma/44FC8645-8709-4C88-BD91-467BF50A23AD.JPG.jpeg",
-      "/productos/sarten-forma/5066EB19-218F-46F4-A429-EB28845C334F.JPG.jpeg",
-      "/productos/sarten-forma/52020D11-1495-4987-89CA-4743383904F0.JPG.jpeg",
-      "/productos/sarten-forma/72FCDAA3-BA35-4427-B310-90C4D2950F8F.JPG.jpeg",
-      "/productos/sarten-forma/A71F263B-60CB-45CC-BADE-8FAD93B9DC24.PNG",
-      "/productos/sarten-forma/F283F80D-A249-4F18-B53F-C7D2AEC4F954.PNG",
+    images: [],
+    colorVariants: [
+      {
+        label: "Blanco",
+        hex: "#E8E2D5",
+        stock: 1,
+        images: [
+          "/productos/sarten-forma/72FCDAA3-BA35-4427-B310-90C4D2950F8F.JPG.jpeg",
+          "/productos/sarten-forma/22A6887B-78F5-46D9-B1DF-3233235506E9.JPG.jpeg",
+          "/productos/sarten-forma/31469175-72AA-4DC0-A5FB-6662877FBB7C.JPG.jpeg",
+          "/productos/sarten-forma/5066EB19-218F-46F4-A429-EB28845C334F.JPG.jpeg",
+          "/productos/sarten-forma/52020D11-1495-4987-89CA-4743383904F0.JPG.jpeg",
+          "/productos/sarten-forma/244774E0-A870-4B4B-A9BB-B536BFFCB5E7.PNG",
+          "/productos/sarten-forma/A71F263B-60CB-45CC-BADE-8FAD93B9DC24.PNG",
+          "/productos/sarten-forma/F283F80D-A249-4F18-B53F-C7D2AEC4F954.PNG",
+        ],
+      },
+      {
+        label: "Negro",
+        hex: "#2C2C2C",
+        images: [
+          "/productos/sarten-forma/b89f88e5-45fd-4c84-814c-1954d3d8816c.jpeg",
+          "/productos/sarten-forma/44FC8645-8709-4C88-BD91-467BF50A23AD.JPG.jpeg",
+        ],
+      },
     ],
   },
   {

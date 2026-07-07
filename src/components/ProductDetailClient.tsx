@@ -74,7 +74,10 @@ export function ProductDetailClient({ product }: { product: Product }) {
           )}
         </div>
         <h1>{product.name}</h1>
-        <p className="variant">{product.variant}</p>
+        {product.shortDescription && (
+          <p className="detail-short-description">{product.shortDescription}</p>
+        )}
+        {product.variant && <p className="variant">{product.variant}</p>}
         <div className="detail-price">
           <p className="price">{formatPrice(product.price)}</p>
           {hasDiscount && (

@@ -1402,10 +1402,19 @@ select:focus-visible,
   margin: 0;
 }
 
+.detail-copy .detail-short-description {
+  margin: 4px 0 0;
+  color: var(--color-ink);
+  font-size: 1.05rem;
+  line-height: 1.45;
+  font-weight: 500;
+}
+
 .detail-copy .variant {
-  margin: 0;
+  margin: 2px 0 0;
   color: var(--color-muted);
   font-weight: 600;
+  font-size: 0.95rem;
 }
 
 .detail-description,
