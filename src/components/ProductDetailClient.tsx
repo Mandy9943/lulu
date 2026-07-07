@@ -140,6 +140,9 @@ export function ProductDetailClient({ product }: { product: Product }) {
             </p>
             <div className="color-swatches" role="group" aria-label="Color">
               {colorVariants.map((v, i) => {
+                // Una variante agotada se sigue pudiendo seleccionar para
+                // ver sus fotos; sólo bloqueamos la compra en el CTA y en
+                // la lógica del carrito.
                 const variantOut = productOutOfStock || (v.stock ?? 1) === 0;
                 const isSelected = i === selectedIdx;
                 return (
@@ -148,9 +151,8 @@ export function ProductDetailClient({ product }: { product: Product }) {
                     type="button"
                     className={`color-swatch${isSelected ? " color-swatch--active" : ""}${variantOut ? " color-swatch--disabled" : ""}`}
                     style={{ "--swatch-color": v.hex } as React.CSSProperties}
-                    onClick={() => !variantOut && setSelectedIdx(i)}
-                    disabled={variantOut}
-                    aria-disabled={variantOut}
+                    onClick={() => setSelectedIdx(i)}
+                    aria-disabled={variantOut || undefined}
                     aria-label={`Color ${v.label}${variantOut ? " (agotado)" : ""}`}
                     aria-pressed={isSelected}
                     title={variantOut ? `${v.label} agotado` : v.label}

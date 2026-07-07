@@ -349,6 +349,7 @@ export const products: Product[] = [
     slug: "sarten-grill-cuadrado",
     name: "Bifera antiadherente de cerámica - mango de madera",
     price: 590,
+    stock: 0,
     originalPrice: 790,
     discountPercent: 25,
     // TODO mpPrice: confirmar valor real. Placeholder: price * 1.086
