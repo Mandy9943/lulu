@@ -108,9 +108,170 @@ export interface Product {
    * Útil para excluir productos puntuales de la promo universal.
    */
   showCountdown?: boolean;
+  /**
+   * Marca el producto como "Preventa exprés": muestra un cartelito
+   * "Preventa exprés" y un contador regresivo hacia `PRESALE_END_DATE`
+   * (ver `src/lib/promo.ts`), independiente de si hay descuento.
+   * Para sacarlo antes de tiempo, quitá este flag del producto.
+   */
+  presale?: boolean;
 }
 
 export const products: Product[] = [
+  {
+    slug: "bateria-premium-15-piezas",
+    name: "Batería de cocina premium antiadherente con mango desmontable - 15 piezas",
+    price: 6990,
+    category: "Cocina",
+    type: "ollas",
+    presale: true,
+    variant: "Antiadherente premium con mango desmontable",
+    shortDescription:
+      "Batería completa de 15 piezas en rosa o púrpura, con mango desmontable y diseño apilable.",
+    description:
+      "Juego de utensilios de cocina premium con mango desmontable, compatible con cocina de gas, inducción, horno y lavavajillas. Multicapa antiadherente de cerámica y fondo de aluminio, libre de PFOAS y materiales tóxicos, con diseño apilable para un fácil almacenamiento. Incluye tres sartenes, dos ollas, dos mangos desmontables, dos tapas para refrigerador, dos tapas de vidrio y 4 almohadillas de fieltro para apilar. Disponible en dos colores: rosa y púrpura.",
+    highlights: [
+      "15 piezas",
+      "Libre de PFOAS y materiales tóxicos",
+      "Mango desmontable y apilable",
+      "Apto para inducción, gas, horno y vitrocerámica",
+    ],
+    coverImage: "/productos/bateria-premium-15-piezas/rosa-1.jpeg",
+    images: [
+      "/productos/bateria-premium-15-piezas/rosa-1.jpeg",
+      "/productos/bateria-premium-15-piezas/rosa-2.jpeg",
+      "/productos/bateria-premium-15-piezas/rosa-3.jpeg",
+      "/productos/bateria-premium-15-piezas/rosa-4.jpeg",
+      "/productos/bateria-premium-15-piezas/rosa-5.jpeg",
+      "/productos/bateria-premium-15-piezas/rosa-6.jpeg",
+    ],
+    colorVariants: [
+      {
+        label: "Rosa",
+        hex: "#F4A7B9",
+        images: [
+          "/productos/bateria-premium-15-piezas/rosa-1.jpeg",
+          "/productos/bateria-premium-15-piezas/rosa-2.jpeg",
+          "/productos/bateria-premium-15-piezas/rosa-3.jpeg",
+          "/productos/bateria-premium-15-piezas/rosa-4.jpeg",
+          "/productos/bateria-premium-15-piezas/rosa-5.jpeg",
+          "/productos/bateria-premium-15-piezas/rosa-6.jpeg",
+        ],
+      },
+      {
+        label: "Púrpura",
+        hex: "#B7A9D9",
+        images: [
+          "/productos/bateria-premium-15-piezas/purpura-1.jpeg",
+          "/productos/bateria-premium-15-piezas/purpura-2.jpeg",
+        ],
+      },
+    ],
+  },
+  {
+    slug: "bateria-premium-9-piezas",
+    name: "Batería de cocina premium antiadherente con mango desmontable - 9 piezas",
+    price: 5900,
+    category: "Cocina",
+    type: "ollas",
+    presale: true,
+    variant: "Antiadherente premium color crema con mango desmontable",
+    shortDescription:
+      "Batería de 9 piezas en tono crema, con mango desmontable y diseño apilable.",
+    description:
+      "Juego de utensilios de cocina premium con mango desmontable, compatible con cocina de gas, inducción, horno y lavavajillas. Multicapa antiadherente de cerámica y fondo de aluminio, libre de PFOAS y materiales tóxicos, con diseño apilable para un fácil almacenamiento. Incluye 3 sartenes, 2 ollas, 2 tapas y 2 mangos desmontables.",
+    highlights: [
+      "9 piezas",
+      "Libre de PFOAS y materiales tóxicos",
+      "Mango desmontable y apilable",
+      "Apto para inducción, gas, horno y vitrocerámica",
+    ],
+    coverImage: "/productos/bateria-premium-9-piezas/crema-1.jpeg",
+    images: [
+      "/productos/bateria-premium-9-piezas/crema-1.jpeg",
+      "/productos/bateria-premium-9-piezas/crema-2.jpeg",
+      "/productos/bateria-premium-9-piezas/crema-3.jpeg",
+      "/productos/bateria-premium-9-piezas/crema-4.jpeg",
+    ],
+  },
+  {
+    slug: "set-cocina-rosa-6-piezas",
+    name: "Set de cocina antiadherente rosa con mango desmontable - 6 piezas",
+    price: 3730,
+    category: "Cocina",
+    type: "ollas",
+    presale: true,
+    variant: "Antiadherente de cerámica rosa con mango desmontable",
+    shortDescription:
+      "Set rosa premium con mango desmontable y tapa hermética para llevar del fuego a la heladera.",
+    description:
+      "Juego de utensilios de cocina premium con mango desmontable y tapa hermética para refrigerador, compatible con cocina de gas, inducción, horno y lavavajillas. Multicapa antiadherente de cerámica y fondo de aluminio, libre de PFOAS y materiales tóxicos, con diseño apilable para un fácil almacenamiento. Incluye dos sartenes, una olla, tapa de vidrio, un mango desmontable y una tapa hermética para guardar tus comidas directo en el refrigerador.",
+    highlights: [
+      "6 piezas",
+      "Libre de PFOAS y materiales tóxicos",
+      "Mango desmontable + tapa hermética para heladera",
+      "Apto para inducción, gas, horno y vitrocerámica",
+    ],
+    coverImage: "/productos/set-cocina-rosa-6-piezas/set-rosa-1.jpeg",
+    images: [
+      "/productos/set-cocina-rosa-6-piezas/set-rosa-1.jpeg",
+      "/productos/set-cocina-rosa-6-piezas/set-rosa-2.jpeg",
+      "/productos/set-cocina-rosa-6-piezas/set-rosa-3.jpeg",
+      "/productos/set-cocina-rosa-6-piezas/set-rosa-4.jpeg",
+    ],
+  },
+  {
+    slug: "recipientes-hermeticos-cafe-te-azucar",
+    name: "Conjunto de 3 recipientes herméticos - Café, Té y Azúcar",
+    price: 1390,
+    category: "Cocina",
+    type: "accesorios",
+    presale: true,
+    variant: "Set de 3 con tapa hermética de bambú",
+    shortDescription:
+      "Trío de contenedores en tonos suaves para café, té y azúcar, con tapa hermética de bambú.",
+    description:
+      "Set femenino de contenedores en tonos suaves, con tapa hermética de bambú e interior de hierro que limita la luz y el paso del aire. Ideal para conservar café, té y azúcar frescos y a la vez decorar tu cocina.",
+    highlights: [
+      "Set de 3 piezas",
+      "Tapa hermética de bambú",
+      "Interior de hierro que limita luz y aire",
+      "Diseño en tonos suaves",
+    ],
+    coverImage:
+      "/productos/recipientes-hermeticos-cafe-te-azucar/recipientes-1.jpeg",
+    images: [
+      "/productos/recipientes-hermeticos-cafe-te-azucar/recipientes-1.jpeg",
+      "/productos/recipientes-hermeticos-cafe-te-azucar/recipientes-2.jpeg",
+      "/productos/recipientes-hermeticos-cafe-te-azucar/recipientes-3.jpeg",
+    ],
+  },
+  {
+    slug: "mantequillera-ceramica-bambu",
+    name: "Mantequillera hermética de cerámica y bambú",
+    price: 1290,
+    category: "Desayuno",
+    type: "accesorios",
+    presale: true,
+    variant: "Cerámica con tapa de bambú — apta lavavajillas y microondas",
+    shortDescription:
+      "Mantené tu manteca cremosa y lista para untar, con un diseño que luce en la mesa.",
+    description:
+      "Mantequillera hermética de cerámica y bambú, apta para lavavajillas y microondas. Almacena y mantiene tu manteca a temperatura ambiente, garantizando siempre una textura cremosa y lista para untar sin sacrificar el diseño.",
+    highlights: [
+      "Cerámica y bambú",
+      "Apta para lavavajillas y microondas",
+      "Tapa hermética",
+      "Manteca cremosa a temperatura ambiente",
+    ],
+    coverImage:
+      "/productos/mantequillera-ceramica-bambu/mantequillera-1.jpeg",
+    images: [
+      "/productos/mantequillera-ceramica-bambu/mantequillera-1.jpeg",
+      "/productos/mantequillera-ceramica-bambu/mantequillera-2.jpeg",
+      "/productos/mantequillera-ceramica-bambu/mantequillera-3.jpeg",
+    ],
+  },
   {
     slug: "utensilios-silicona",
     name: "Set de utensilios de cocina con soporte - 14 piezas.",
