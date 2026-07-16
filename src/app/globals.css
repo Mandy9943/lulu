@@ -823,6 +823,12 @@ select:focus-visible,
   text-transform: uppercase;
 }
 
+.badge--presale {
+  background: linear-gradient(135deg, #8b5cf6 0%, #d946a6 100%);
+  color: #fff;
+  box-shadow: 0 2px 8px rgba(139, 92, 246, 0.35);
+}
+
 .discount-badge {
   position: absolute;
   top: 10px;
@@ -1289,6 +1295,12 @@ select:focus-visible,
   background: linear-gradient(135deg, #ff8a3d 0%, #ff5e3a 100%);
   color: #fff;
   box-shadow: 0 4px 14px rgba(255, 94, 58, 0.32);
+}
+
+.pill--presale {
+  background: linear-gradient(135deg, #8b5cf6 0%, #d946a6 100%);
+  color: #fff;
+  box-shadow: 0 4px 14px rgba(139, 92, 246, 0.32);
 }
 
 .pill--urgent .material-symbols-outlined {

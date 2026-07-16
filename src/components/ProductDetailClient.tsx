@@ -13,7 +13,7 @@ import {
   isProductAvailable,
   type Product,
 } from "@/lib/products";
-import { PROMO_END_DATE } from "@/lib/promo";
+import { PRESALE_END_DATE, PROMO_END_DATE } from "@/lib/promo";
 import { FREE_SHIPPING_THRESHOLD } from "@/lib/site";
 import { useState } from "react";
 
@@ -44,6 +44,8 @@ export function ProductDetailClient({ product }: { product: Product }) {
     typeof product.originalPrice === "number" &&
     product.originalPrice > product.price;
 
+  const presale = product.presale === true;
+
   const productOutOfStock = !isProductAvailable(product);
   const activeOutOfStock = !getVariantAvailability(product, activeVariantLabel);
   const outOfStock = productOutOfStock || activeOutOfStock;
@@ -59,6 +61,9 @@ export function ProductDetailClient({ product }: { product: Product }) {
 
       <div className="detail-copy">
         <div className="detail-pills">
+          {presale && (
+            <span className="pill pill--presale">Preventa exprés</span>
+          )}
           {product.badge && <span className="pill">{product.badge}</span>}
           {lastUnit && (
             <span className="pill pill--urgent">
@@ -93,11 +98,11 @@ export function ProductDetailClient({ product }: { product: Product }) {
             </>
           )}
         </div>
-        {hasDiscount && product.showCountdown !== false && (
+        {(hasDiscount || presale) && product.showCountdown !== false && (
           <CountdownTimer
-            targetDate={PROMO_END_DATE}
+            targetDate={presale ? PRESALE_END_DATE : PROMO_END_DATE}
             variant="detail"
-            label="Oferta termina en"
+            label={presale ? "Preventa exprés termina en" : "Oferta termina en"}
           />
         )}
         {product.price > FREE_SHIPPING_THRESHOLD && (

@@ -10,7 +10,7 @@ import {
   isProductAvailable,
   type Product,
 } from "@/lib/products";
-import { PROMO_END_DATE } from "@/lib/promo";
+import { PRESALE_END_DATE, PROMO_END_DATE } from "@/lib/promo";
 import { FREE_SHIPPING_THRESHOLD } from "@/lib/site";
 import Image from "next/image";
 import Link from "next/link";
@@ -33,6 +33,7 @@ export function ProductCard({ product, priority = false }: Props) {
   const hasDiscount =
     typeof product.originalPrice === "number" &&
     product.originalPrice > product.price;
+  const presale = product.presale === true;
   const outOfStock = !isProductAvailable(product);
   const lastUnit = !outOfStock && isLastUnit(product);
 
@@ -54,7 +55,11 @@ export function ProductCard({ product, priority = false }: Props) {
             priority={priority}
           />
         </Link>
-        {product.badge && <span className="badge">{product.badge}</span>}
+        {presale ? (
+          <span className="badge badge--presale">Preventa exprés</span>
+        ) : (
+          product.badge && <span className="badge">{product.badge}</span>
+        )}
         {hasDiscount && product.discountPercent !== undefined && (
           <span className="discount-badge">
             -{product.discountPercent}% OFF
@@ -98,9 +103,12 @@ export function ProductCard({ product, priority = false }: Props) {
             outOfStock={outOfStock}
           />
         </div>{" "}
-        {hasDiscount && product.showCountdown !== false && (
+        {(hasDiscount || presale) && product.showCountdown !== false && (
           <div className="product-card-countdown-wrap">
-            <CountdownTimer targetDate={PROMO_END_DATE} variant="card" />
+            <CountdownTimer
+              targetDate={presale ? PRESALE_END_DATE : PROMO_END_DATE}
+              variant="card"
+            />
           </div>
         )}{" "}
         <InstallmentsHint price={getMpPrice(product)} variant="inline" />{" "}
