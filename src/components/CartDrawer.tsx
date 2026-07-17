@@ -22,6 +22,7 @@ export function CartDrawer() {
     items,
     subtotal,
     subtotalLabel,
+    shippingCost,
     isOpen,
     close,
     remove,
@@ -190,11 +191,27 @@ export function CartDrawer() {
             <span>Subtotal</span>
             <strong>{subtotalLabel}</strong>
           </div>
-          {subtotal > FREE_SHIPPING_THRESHOLD && (
-            <p className="shipping-note">
-              <Icon name="local_shipping" />
-              <span>Envío gratis en Montevideo</span>
-            </p>
+          {shippingCost > 0 ? (
+            <>
+              <div className="subtotal-row">
+                <span>
+                  <Icon name="local_shipping" />
+                  Envío en Montevideo
+                </span>
+                <strong>{formatPrice(shippingCost)}</strong>
+              </div>
+              <div className="subtotal-row cart-total-row">
+                <span>Total</span>
+                <strong>{formatPrice(subtotal + shippingCost)}</strong>
+              </div>
+            </>
+          ) : (
+            subtotal > FREE_SHIPPING_THRESHOLD && (
+              <p className="shipping-note shipping-note--free">
+                <Icon name="local_shipping" />
+                <span>Envío gratis en Montevideo</span>
+              </p>
+            )
           )}
           {items.length > 0 && (
             <InstallmentsHint

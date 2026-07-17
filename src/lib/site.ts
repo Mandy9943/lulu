@@ -24,7 +24,14 @@ export const site = {
   whatsappNumber: "598092092765",
 } as const;
 
-/** Umbral para envío gratis (en UYU). Productos/carritos que superen este monto tienen envío gratis en Montevideo. */
+/** Umbral para envío gratis (en UYU). Productos SIN `paidShippingMvd`
+ * que superen este monto muestran envío gratis en Montevideo. */
 export const FREE_SHIPPING_THRESHOLD = 3000;
+
+/** Costo de envío dentro de Montevideo (en UYU) para los productos marcados
+ * con `paidShippingMvd: true`. Se muestra en las cards, el detalle y el
+ * carrito, y se suma al total. Envíos al resto del país se coordinan por
+ * WhatsApp. */
+export const MONTEVIDEO_SHIPPING_COST = 175;
 
 export type Site = typeof site;

@@ -115,6 +115,13 @@ export interface Product {
    * Para sacarlo antes de tiempo, quitá este flag del producto.
    */
   presale?: boolean;
+  /**
+   * Si es true, este producto NO tiene envío gratis: cobra
+   * `MONTEVIDEO_SHIPPING_COST` de envío dentro de Montevideo (se muestra en
+   * la card, el detalle y se suma al total del carrito). Si el carrito
+   * incluye al menos un producto con este flag, se cobra el envío una vez.
+   */
+  paidShippingMvd?: boolean;
 }
 
 export const products: Product[] = [
@@ -125,6 +132,7 @@ export const products: Product[] = [
     category: "Cocina",
     type: "ollas",
     presale: true,
+    paidShippingMvd: true,
     variant: "Antiadherente premium con mango desmontable",
     shortDescription:
       "Batería completa de 15 piezas en rosa o púrpura, con mango desmontable y diseño apilable.",
@@ -175,6 +183,7 @@ export const products: Product[] = [
     category: "Cocina",
     type: "ollas",
     presale: true,
+    paidShippingMvd: true,
     variant: "Antiadherente premium color crema con mango desmontable",
     shortDescription:
       "Batería de 9 piezas en tono crema, con mango desmontable y diseño apilable.",
@@ -201,6 +210,7 @@ export const products: Product[] = [
     category: "Cocina",
     type: "ollas",
     presale: true,
+    paidShippingMvd: true,
     variant: "Antiadherente de cerámica rosa con mango desmontable",
     shortDescription:
       "Set rosa premium con mango desmontable y tapa hermética para llevar del fuego a la heladera.",
@@ -227,6 +237,7 @@ export const products: Product[] = [
     category: "Cocina",
     type: "accesorios",
     presale: true,
+    paidShippingMvd: true,
     variant: "Set de 3 con tapa hermética de bambú",
     shortDescription:
       "Trío de contenedores en tonos suaves para café, té y azúcar, con tapa hermética de bambú.",
@@ -253,6 +264,7 @@ export const products: Product[] = [
     category: "Desayuno",
     type: "accesorios",
     presale: true,
+    paidShippingMvd: true,
     variant: "Cerámica con tapa de bambú — apta lavavajillas y microondas",
     shortDescription:
       "Mantené tu manteca cremosa y lista para untar, con un diseño que luce en la mesa.",

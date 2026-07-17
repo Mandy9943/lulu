@@ -11,7 +11,7 @@ import {
   type Product,
 } from "@/lib/products";
 import { PRESALE_END_DATE, PROMO_END_DATE } from "@/lib/promo";
-import { FREE_SHIPPING_THRESHOLD } from "@/lib/site";
+import { FREE_SHIPPING_THRESHOLD, MONTEVIDEO_SHIPPING_COST } from "@/lib/site";
 import Image from "next/image";
 import Link from "next/link";
 
@@ -112,11 +112,18 @@ export function ProductCard({ product, priority = false }: Props) {
           </div>
         )}{" "}
         <InstallmentsHint price={getMpPrice(product)} variant="inline" />{" "}
-        {product.price > FREE_SHIPPING_THRESHOLD && (
+        {product.paidShippingMvd ? (
           <span className="shipping-badge">
             <Icon name="local_shipping" />
-            Envío gratis en Mvd.
+            Envío {formatPrice(MONTEVIDEO_SHIPPING_COST)} en Mvd.
           </span>
+        ) : (
+          product.price > FREE_SHIPPING_THRESHOLD && (
+            <span className="shipping-badge shipping-badge--free">
+              <Icon name="local_shipping" />
+              Envío gratis en Mvd.
+            </span>
+          )
         )}{" "}
       </div>
     </article>

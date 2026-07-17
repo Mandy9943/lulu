@@ -14,7 +14,7 @@ import {
   type Product,
 } from "@/lib/products";
 import { PRESALE_END_DATE, PROMO_END_DATE } from "@/lib/promo";
-import { FREE_SHIPPING_THRESHOLD } from "@/lib/site";
+import { FREE_SHIPPING_THRESHOLD, MONTEVIDEO_SHIPPING_COST } from "@/lib/site";
 import { useState } from "react";
 
 export function ProductDetailClient({ product }: { product: Product }) {
@@ -105,11 +105,20 @@ export function ProductDetailClient({ product }: { product: Product }) {
             label={presale ? "Preventa exprés termina en" : "Oferta termina en"}
           />
         )}
-        {product.price > FREE_SHIPPING_THRESHOLD && (
+        {product.paidShippingMvd ? (
           <p className="shipping-note">
             <Icon name="local_shipping" />
-            <span>Envío gratis en Montevideo</span>
+            <span>
+              Envío {formatPrice(MONTEVIDEO_SHIPPING_COST)} en Montevideo
+            </span>
           </p>
+        ) : (
+          product.price > FREE_SHIPPING_THRESHOLD && (
+            <p className="shipping-note shipping-note--free">
+              <Icon name="local_shipping" />
+              <span>Envío gratis en Montevideo</span>
+            </p>
+          )
         )}
         <InstallmentsHint
           price={getMpPrice(product)}

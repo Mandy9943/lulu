@@ -1770,6 +1770,29 @@ select:focus-visible,
   margin-bottom: 4px;
 }
 
+.subtotal-row span {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.subtotal-row .material-symbols-outlined {
+  font-size: 15px;
+  color: var(--color-muted);
+}
+
+.cart-total-row {
+  margin-top: 8px;
+  padding-top: 10px;
+  border-top: 1px solid var(--color-outline);
+  font-size: 1.05rem;
+  font-weight: 700;
+}
+
+.cart-total-row strong {
+  font-size: 1.05rem;
+}
+
 .cart-footer p {
   margin: 0 0 16px;
   color: var(--color-muted);
@@ -1802,8 +1825,8 @@ select:focus-visible,
   margin-top: 8px;
   padding: 3px 8px;
   border-radius: 999px;
-  background: #e8f5e9;
-  color: #2e7d32;
+  background: #f1edef;
+  color: #6b5560;
   font-size: 0.65rem;
   font-weight: 700;
   letter-spacing: 0.04em;
@@ -1811,6 +1834,12 @@ select:focus-visible,
 
 .shipping-badge .material-symbols-outlined {
   font-size: 13px;
+}
+
+/* Envío gratis — verde (los productos con envío pago quedan neutros) */
+.shipping-badge--free {
+  background: #e8f5e9;
+  color: #2e7d32;
 }
 
 /* Shipping note — footer del carrito */
@@ -1821,8 +1850,8 @@ select:focus-visible,
   margin: 8px 0 14px !important;
   padding: 10px 14px;
   border-radius: 8px;
-  background: #e8f5e9;
-  color: #2e7d32 !important;
+  background: #f1edef;
+  color: #6b5560 !important;
   font-size: 0.78rem !important;
   font-weight: 600;
 }
@@ -1830,6 +1859,11 @@ select:focus-visible,
 .shipping-note .material-symbols-outlined {
   font-size: 18px;
   flex-shrink: 0;
+}
+
+.shipping-note--free {
+  background: #e8f5e9 !important;
+  color: #2e7d32 !important;
 }
 
 /* ----------------------------------------------------------------------------

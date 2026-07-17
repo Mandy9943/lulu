@@ -7,7 +7,7 @@ import {
   isProductAvailable,
   type Product,
 } from "@/lib/products";
-import { site } from "@/lib/site";
+import { MONTEVIDEO_SHIPPING_COST, site } from "@/lib/site";
 import {
   createContext,
   useCallback,
@@ -38,6 +38,8 @@ interface CartContextValue {
   count: number;
   subtotal: number;
   subtotalLabel: string;
+  /** Costo de envío del pedido (0 si ningún item cobra envío). */
+  shippingCost: number;
   isOpen: boolean;
   open: () => void;
   close: () => void;
@@ -195,6 +197,16 @@ export function CartProvider({ children }: { children: ReactNode }) {
     [enriched],
   );
 
+  // Envío por pedido: si al menos un producto cobra envío en Montevideo,
+  // se cobra una sola vez (no por item).
+  const shippingCost = useMemo(
+    () =>
+      enriched.some((item) => item.product.paidShippingMvd)
+        ? MONTEVIDEO_SHIPPING_COST
+        : 0,
+    [enriched],
+  );
+
   const checkoutWhatsApp = useCallback(() => {
     if (enriched.length === 0) return;
     // Bloquear checkout si hay agotados: el cliente debe quitar
@@ -206,17 +218,25 @@ export function CartProvider({ children }: { children: ReactNode }) {
         product.price * quantity,
       )}`;
     });
+    const totalsLines =
+      shippingCost > 0
+        ? [
+            `Subtotal: ${formatPrice(subtotal)}`,
+            `Envío en Montevideo: ${formatPrice(shippingCost)}`,
+            `Total: ${formatPrice(subtotal + shippingCost)}`,
+          ]
+        : [`Total: ${formatPrice(subtotal)}`];
     const message = [
       "Hola Lulu, quiero pedir estos productos:",
       ...lines,
       "",
-      `Total: ${formatPrice(subtotal)}`,
+      ...totalsLines,
       "",
       "Quedo atenta a confirmar stock, entrega y forma de pago.",
     ].join("\n");
     const url = `https://wa.me/${site.whatsappNumber}?text=${encodeURIComponent(message)}`;
     window.open(url, "_blank", "noopener");
-  }, [enriched, subtotal, hasOutOfStock]);
+  }, [enriched, subtotal, shippingCost, hasOutOfStock]);
 
   const value = useMemo<CartContextValue>(
     () => ({
@@ -224,6 +244,7 @@ export function CartProvider({ children }: { children: ReactNode }) {
       count,
       subtotal,
       subtotalLabel: formatPrice(subtotal),
+      shippingCost,
       isOpen,
       open,
       close,
@@ -237,6 +258,7 @@ export function CartProvider({ children }: { children: ReactNode }) {
       enriched,
       count,
       subtotal,
+      shippingCost,
       isOpen,
       open,
       close,
