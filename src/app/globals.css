@@ -2540,6 +2540,130 @@ select:focus-visible,
   color: var(--color-tertiary);
 }
 
+/* Guía preventa exprés — pedidos por encargo */
+.presale-guide {
+  width: min(1280px, calc(100% - 32px));
+  margin: 0 auto;
+  padding: clamp(48px, 6vw, 72px) 0 0;
+}
+
+.presale-guide-inner {
+  position: relative;
+  overflow: hidden;
+  padding: clamp(28px, 4vw, 56px);
+  border-radius: 28px;
+  background: linear-gradient(
+    135deg,
+    #fff0f7 0%,
+    #ffe3f0 45%,
+    #f3e8ff 100%
+  );
+  border: 1px solid var(--color-outline);
+  text-align: center;
+}
+
+.presale-guide-inner::before,
+.presale-guide-inner::after {
+  content: "";
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(2px);
+  pointer-events: none;
+}
+
+.presale-guide-inner::before {
+  width: 220px;
+  height: 220px;
+  top: -110px;
+  left: -70px;
+  background: rgba(217, 70, 166, 0.14);
+}
+
+.presale-guide-inner::after {
+  width: 260px;
+  height: 260px;
+  bottom: -140px;
+  right: -80px;
+  background: rgba(139, 92, 246, 0.14);
+}
+
+.presale-guide-eyebrow {
+  display: inline-block;
+  margin: 0 0 14px;
+  padding: 6px 16px;
+  border-radius: 999px;
+  background: linear-gradient(135deg, #8b5cf6 0%, #d946a6 100%);
+  color: #fff;
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  box-shadow: 0 2px 8px rgba(139, 92, 246, 0.35);
+}
+
+.presale-guide-inner h2 {
+  margin: 0 auto clamp(28px, 4vw, 44px);
+  max-width: 640px;
+  font-family: var(--font-serif);
+  font-size: clamp(1.6rem, 2.8vw, 2.3rem);
+  line-height: 1.2;
+}
+
+.presale-guide-steps {
+  position: relative;
+  z-index: 1;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: clamp(14px, 2vw, 24px);
+  text-align: left;
+}
+
+.presale-guide-step {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding: clamp(18px, 2.4vw, 28px);
+  border-radius: 20px;
+  background: rgba(255, 255, 255, 0.75);
+  backdrop-filter: blur(4px);
+  border: 1px solid rgba(219, 191, 199, 0.6);
+}
+
+.presale-guide-number {
+  display: grid;
+  place-items: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #8b5cf6 0%, #d946a6 100%);
+  color: #fff;
+  font-family: var(--font-serif);
+  font-size: 1.2rem;
+  font-weight: 700;
+  box-shadow: 0 2px 8px rgba(139, 92, 246, 0.35);
+}
+
+.presale-guide-step h3 {
+  margin: 0;
+  font-size: 1.05rem;
+  color: var(--color-tertiary);
+}
+
+.presale-guide-step p {
+  margin: 0;
+  color: var(--color-muted);
+  font-size: 0.92rem;
+}
+
+@media (max-width: 900px) {
+  .presale-guide-steps {
+    grid-template-columns: 1fr;
+  }
+}
+
 /* Cómo comprar — pasos de compra */
 .how-to-buy {
   width: min(1280px, calc(100% - 32px));

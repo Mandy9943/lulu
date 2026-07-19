@@ -1,6 +1,8 @@
 import { Icon } from "@/components/Icon";
 import { JsonLd } from "@/components/JsonLd";
+import { PresaleGuide } from "@/components/PresaleGuide";
 import { ProductDetailClient } from "@/components/ProductDetailClient";
+import { Reviews } from "@/components/Reviews";
 import {
   getAllSlugs,
   getCover,
@@ -113,25 +115,29 @@ export default async function ProductPage({
   };
 
   return (
-    <article className="product-detail">
-      <JsonLd data={productLd} />
-      <JsonLd data={breadcrumbLd} />
+    <>
+      <article className="product-detail">
+        <JsonLd data={productLd} />
+        <JsonLd data={breadcrumbLd} />
 
-      <div className="detail-topbar">
-        <Link className="back-to-catalog" href="/#catalog">
-          <Icon name="arrow_back" />
-          <span>Volver al catálogo</span>
-        </Link>
-        <nav className="breadcrumbs" aria-label="Migas de pan">
-          <Link href="/">Inicio</Link>
-          <span aria-hidden="true">/</span>
-          <Link href="/#catalog">Catálogo</Link>
-          <span aria-hidden="true">/</span>
-          <span aria-current="page">{product.name}</span>
-        </nav>
-      </div>
+        <div className="detail-topbar">
+          <Link className="back-to-catalog" href="/#catalog">
+            <Icon name="arrow_back" />
+            <span>Volver al catálogo</span>
+          </Link>
+          <nav className="breadcrumbs" aria-label="Migas de pan">
+            <Link href="/">Inicio</Link>
+            <span aria-hidden="true">/</span>
+            <Link href="/#catalog">Catálogo</Link>
+            <span aria-hidden="true">/</span>
+            <span aria-current="page">{product.name}</span>
+          </nav>
+        </div>
 
-      <ProductDetailClient product={product} />
-    </article>
+        <ProductDetailClient product={product} />
+      </article>
+      {product.presale && <PresaleGuide />}
+      <Reviews />
+    </>
   );
 }
