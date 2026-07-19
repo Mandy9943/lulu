@@ -3314,6 +3314,7 @@ select:focus-visible,
 }
 
 .heroG-polaroid {
+  --polaroid-size: clamp(96px, 10vw, 132px);
   position: absolute;
   z-index: 3;
   margin: 0;
@@ -3325,17 +3326,21 @@ select:focus-visible,
 }
 
 .heroG-polaroid img {
-  width: clamp(96px, 10vw, 132px);
-  height: clamp(96px, 10vw, 132px);
+  width: var(--polaroid-size);
+  height: var(--polaroid-size);
   border-radius: 6px;
   object-fit: cover;
 }
 
+/* Mismo ancho que la foto: leyendas largas se parten en líneas
+   en vez de estirar la tarjeta */
 .heroG-polaroid figcaption {
+  width: var(--polaroid-size);
   padding: 6px 2px 2px;
   font-family: var(--font-serif);
   font-size: 0.82rem;
   font-style: italic;
+  line-height: 1.25;
   color: var(--color-primary);
   text-align: center;
 }
@@ -3521,9 +3526,8 @@ select:focus-visible,
     width: min(300px, 78vw);
   }
 
-  .heroG-polaroid img {
-    width: 84px;
-    height: 84px;
+  .heroG-polaroid {
+    --polaroid-size: 84px;
   }
 
   .heroG-polaroid--a {
