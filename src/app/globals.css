@@ -413,63 +413,17 @@ select:focus-visible,
 }
 
 /* ----------------------------------------------------------------------------
-   Hero
+   Section headings (los estilos del hero viven en la sección "Hero girly")
 ---------------------------------------------------------------------------- */
-.hero {
-  position: relative;
-  min-height: min(870px, calc(100svh - 64px));
-  display: grid;
-  place-items: center;
-  overflow: hidden;
-  background-color: var(--color-surface-lowest);
-  background-image: url("/hero/lulu-cocina-hero.png");
-  background-position: center center;
-  background-repeat: no-repeat;
-  background-size: cover;
-  background-attachment: fixed;
-}
-
-.hero::after {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(
-    180deg,
-    rgba(252, 249, 248, 0.2),
-    rgba(252, 249, 248, 0.82) 84%
-  );
-}
-
-.hero-copy {
-  position: relative;
-  z-index: 1;
-  width: min(680px, calc(100% - 32px));
-  margin-top: 8vh;
-  text-align: center;
-}
-
 .eyebrow {
   margin: 0 0 12px;
   color: var(--color-primary);
 }
 
-.hero h1,
 .section-heading h2 {
   margin: 0;
   font-family: var(--font-serif);
   line-height: 1.08;
-}
-
-.hero h1 {
-  font-size: clamp(2.4rem, 6vw, 4.8rem);
-  font-weight: 700;
-}
-
-.hero p:not(.eyebrow) {
-  width: min(580px, 100%);
-  margin: 18px auto 34px;
-  color: var(--color-muted);
-  font-size: clamp(1rem, 1.8vw, 1.2rem);
 }
 
 /* ----------------------------------------------------------------------------
@@ -1987,15 +1941,6 @@ select:focus-visible,
     gap: 0;
   }
 
-  .hero {
-    min-height: 620px;
-    background-attachment: scroll;
-  }
-
-  .hero-copy {
-    margin-top: 12vh;
-  }
-
   .section-heading {
     align-items: start;
     flex-direction: column;
@@ -2942,6 +2887,777 @@ select:focus-visible,
   background: var(--color-tertiary);
 }
 
+/* ----------------------------------------------------------------------------
+   Hero girly — fondo de lunares, arco, polaroids, sello y marquee
+---------------------------------------------------------------------------- */
+.heroG {
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  padding: clamp(40px, 6vw, 84px) clamp(16px, 5vw, 64px) 0;
+  background:
+    radial-gradient(
+        circle,
+        rgba(255, 116, 177, 0.18) 1.6px,
+        transparent 1.6px
+      )
+      0 0 / 26px 26px,
+    linear-gradient(165deg, #fff6fa 0%, #ffe9f1 42%, #ffd9e4 100%);
+}
+
+.heroG-blob {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(70px);
+  pointer-events: none;
+  will-change: transform;
+  animation: heroG-drift 14s ease-in-out infinite alternate;
+}
+
+.heroG-blob--a {
+  top: -120px;
+  left: -80px;
+  width: 420px;
+  height: 420px;
+  background: rgba(255, 116, 177, 0.35);
+}
+
+.heroG-blob--b {
+  right: -100px;
+  bottom: 40px;
+  width: 380px;
+  height: 380px;
+  background: rgba(255, 214, 165, 0.5);
+  animation-delay: -7s;
+}
+
+@keyframes heroG-drift {
+  from {
+    transform: translate3d(0, 0, 0) scale(1);
+  }
+  to {
+    transform: translate3d(40px, 30px, 0) scale(1.12);
+  }
+}
+
+.heroG-spark {
+  position: absolute;
+  z-index: 1;
+  color: var(--color-primary-bright);
+  pointer-events: none;
+  animation: heroG-twinkle 3.2s ease-in-out infinite;
+}
+
+.heroG-spark--1 {
+  top: 14%;
+  left: 6%;
+  font-size: 1.6rem;
+}
+
+.heroG-spark--2 {
+  top: 8%;
+  right: 12%;
+  font-size: 1.1rem;
+  animation-delay: -1s;
+}
+
+.heroG-spark--3 {
+  bottom: 30%;
+  left: 44%;
+  font-size: 1.3rem;
+  animation-delay: -2.2s;
+}
+
+.heroG-spark--4 {
+  top: 38%;
+  left: 2%;
+  font-size: 1rem;
+  color: var(--color-primary);
+  animation-delay: -0.6s;
+}
+
+.heroG-spark--5 {
+  bottom: 22%;
+  right: 4%;
+  font-size: 1.5rem;
+  animation-delay: -1.7s;
+}
+
+@keyframes heroG-twinkle {
+  0%,
+  100% {
+    opacity: 0.25;
+    transform: scale(0.8) rotate(-8deg);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1.15) rotate(8deg);
+  }
+}
+
+.heroG-layout {
+  position: relative;
+  z-index: 2;
+  display: grid;
+  grid-template-columns: minmax(0, 1.05fr) minmax(0, 0.95fr);
+  align-items: center;
+  gap: clamp(32px, 5vw, 72px);
+  width: min(1200px, 100%);
+  margin: 0 auto;
+  padding-bottom: clamp(56px, 7vw, 96px);
+}
+
+.heroG-copy > * {
+  animation: heroG-rise 700ms cubic-bezier(0.2, 0.7, 0.2, 1) both;
+}
+
+.heroG-copy > *:nth-child(2) {
+  animation-delay: 90ms;
+}
+
+.heroG-copy > *:nth-child(3) {
+  animation-delay: 180ms;
+}
+
+.heroG-copy > *:nth-child(4) {
+  animation-delay: 270ms;
+}
+
+.heroG-copy > *:nth-child(5) {
+  animation-delay: 360ms;
+}
+
+@keyframes heroG-rise {
+  from {
+    opacity: 0;
+    transform: translateY(22px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.heroG-sticker,
+.g-sticker,
+.section-heading .eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  margin: 0 0 18px;
+  padding: 8px 16px;
+  border: 2px dashed rgba(168, 46, 106, 0.45);
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.85);
+  color: var(--color-primary);
+  font-size: 0.75rem;
+  font-weight: 800;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  transform: rotate(-2deg);
+  box-shadow: 0 8px 24px rgba(168, 46, 106, 0.14);
+}
+
+.heroG-copy h1 {
+  margin: 0;
+  font-family: var(--font-serif);
+  font-size: clamp(2.5rem, 5.4vw, 4.6rem);
+  font-weight: 700;
+  line-height: 1.06;
+  color: var(--color-ink);
+}
+
+.heroG-highlight,
+.g-highlight {
+  position: relative;
+  display: inline-block;
+  padding: 0 0.08em;
+  color: var(--color-primary);
+  font-style: italic;
+}
+
+.heroG-underline,
+.g-underline {
+  position: absolute;
+  left: 0;
+  bottom: -0.16em;
+  width: 100%;
+  height: 0.22em;
+  color: var(--color-primary-bright);
+  overflow: visible;
+}
+
+.heroG-lead {
+  width: min(480px, 100%);
+  margin: 20px 0 30px;
+  color: var(--color-muted);
+  font-size: clamp(1rem, 1.6vw, 1.15rem);
+  line-height: 1.65;
+}
+
+.heroG-cta {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 12px 22px;
+}
+
+.heroG-cta .primary-link {
+  box-shadow:
+    0 12px 36px rgba(168, 46, 106, 0.28),
+    0 0 0 5px rgba(255, 255, 255, 0.65);
+}
+
+.heroG-cta-alt {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  min-height: 48px;
+  color: var(--color-primary);
+  font-size: 0.78rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  text-decoration: underline;
+  text-decoration-style: wavy;
+  text-decoration-color: var(--color-primary-bright);
+  text-underline-offset: 5px;
+}
+
+.heroG-cta-alt:hover {
+  color: var(--color-tertiary);
+}
+
+.heroG-trust {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin: 26px 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.heroG-trust li {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  padding: 8px 14px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.8);
+  box-shadow: inset 0 0 0 1px rgba(168, 46, 106, 0.16);
+  color: var(--color-muted);
+  font-size: 0.8rem;
+  font-weight: 700;
+}
+
+.heroG-trust .material-symbols-outlined {
+  font-size: 18px;
+  color: var(--color-primary);
+}
+
+/* Visual: arco + polaroids + sello.
+   Solo transform en la entrada: la foto es el LCP y no debe nacer invisible. */
+.heroG-visual {
+  position: relative;
+  justify-self: center;
+  animation: heroG-slide 800ms 200ms cubic-bezier(0.2, 0.7, 0.2, 1) both;
+}
+
+@keyframes heroG-slide {
+  from {
+    transform: translateY(26px);
+  }
+  to {
+    transform: translateY(0);
+  }
+}
+
+.heroG-arch {
+  position: relative;
+  width: clamp(280px, 34vw, 440px);
+  aspect-ratio: 4 / 5;
+  overflow: hidden;
+  border: 9px solid #fff;
+  border-radius: 999px 999px 28px 28px;
+  box-shadow:
+    0 30px 80px rgba(168, 46, 106, 0.28),
+    0 0 0 1px rgba(168, 46, 106, 0.1);
+}
+
+.heroG-arch img {
+  object-fit: cover;
+}
+
+.heroG-polaroid {
+  position: absolute;
+  z-index: 3;
+  margin: 0;
+  padding: 8px 8px 6px;
+  border-radius: 10px;
+  background: #fff;
+  box-shadow: 0 18px 44px rgba(168, 46, 106, 0.24);
+  animation: heroG-bob 5s ease-in-out infinite;
+}
+
+.heroG-polaroid img {
+  width: clamp(96px, 10vw, 132px);
+  height: clamp(96px, 10vw, 132px);
+  border-radius: 6px;
+  object-fit: cover;
+}
+
+.heroG-polaroid figcaption {
+  padding: 6px 2px 2px;
+  font-family: var(--font-serif);
+  font-size: 0.82rem;
+  font-style: italic;
+  color: var(--color-primary);
+  text-align: center;
+}
+
+.heroG-polaroid--a {
+  top: 16%;
+  left: -17%;
+  transform: rotate(-8deg);
+}
+
+.heroG-polaroid--b {
+  right: -15%;
+  bottom: 8%;
+  transform: rotate(7deg);
+  animation-delay: -2.5s;
+}
+
+@keyframes heroG-bob {
+  0%,
+  100% {
+    translate: 0 0;
+  }
+  50% {
+    translate: 0 -10px;
+  }
+}
+
+.heroG-tape {
+  position: absolute;
+  top: -10px;
+  left: 50%;
+  width: 74px;
+  height: 22px;
+  background: rgba(255, 116, 177, 0.4);
+  transform: translateX(-50%) rotate(-4deg);
+  backdrop-filter: blur(2px);
+}
+
+.heroG-seal {
+  position: absolute;
+  top: -34px;
+  right: -26px;
+  z-index: 4;
+  display: grid;
+  place-items: center;
+  width: clamp(96px, 10vw, 128px);
+  height: clamp(96px, 10vw, 128px);
+}
+
+.heroG-seal svg {
+  position: absolute;
+  inset: 0;
+  animation: heroG-spin 18s linear infinite;
+}
+
+.heroG-seal text {
+  fill: var(--color-primary);
+  font-size: 11.5px;
+  font-weight: 800;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+}
+
+.heroG-seal-center {
+  display: grid;
+  place-items: center;
+  width: 44%;
+  height: 44%;
+  border-radius: 50%;
+  background: var(--color-primary-bright);
+  color: #fff;
+  font-size: 1.3rem;
+  box-shadow: 0 10px 26px rgba(255, 116, 177, 0.45);
+}
+
+@keyframes heroG-spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* Marquee inferior */
+.heroG-marquee {
+  position: relative;
+  z-index: 2;
+  margin: 0 calc(-1 * clamp(16px, 5vw, 64px));
+  padding: 13px 0;
+  overflow: hidden;
+  background: var(--color-primary);
+  transform: rotate(-1.4deg) scale(1.03);
+  transform-origin: center;
+  box-shadow: 0 -12px 40px rgba(168, 46, 106, 0.2);
+}
+
+.heroG-marquee-track {
+  display: flex;
+  width: max-content;
+  animation: heroG-marquee 26s linear infinite;
+}
+
+/* WCAG 2.2.2: contenido en movimiento debe poder pausarse */
+.heroG-marquee:hover .heroG-marquee-track,
+.heroG-marquee:focus-within .heroG-marquee-track {
+  animation-play-state: paused;
+}
+
+.heroG-marquee-row {
+  display: flex;
+  align-items: center;
+  flex: 0 0 auto;
+}
+
+.heroG-marquee-item {
+  display: inline-flex;
+  align-items: center;
+  gap: 22px;
+  padding-right: 22px;
+  color: #fff;
+  font-size: 0.78rem;
+  font-weight: 800;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+
+.heroG-marquee-heart {
+  color: var(--color-primary-bright);
+  font-size: 0.9rem;
+}
+
+@keyframes heroG-marquee {
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+@media (max-width: 900px) {
+  .heroG-layout {
+    grid-template-columns: 1fr;
+    justify-items: center;
+    text-align: center;
+    gap: 48px;
+  }
+
+  .heroG-lead {
+    margin-inline: auto;
+  }
+
+  .heroG-cta,
+  .heroG-trust {
+    justify-content: center;
+  }
+
+  .heroG-visual {
+    margin-top: 10px;
+  }
+
+  .heroG-arch {
+    width: min(360px, 74vw);
+  }
+
+  .heroG-polaroid--a {
+    top: 8%;
+    left: -12%;
+  }
+
+  .heroG-polaroid--b {
+    right: -12%;
+    bottom: 4%;
+  }
+}
+
+@media (max-width: 620px) {
+  .heroG {
+    padding-top: 34px;
+  }
+
+  .heroG-copy h1 {
+    font-size: clamp(2.2rem, 10vw, 2.9rem);
+  }
+
+  .heroG-arch {
+    width: min(300px, 78vw);
+  }
+
+  .heroG-polaroid img {
+    width: 84px;
+    height: 84px;
+  }
+
+  .heroG-polaroid--a {
+    left: -6%;
+  }
+
+  .heroG-polaroid--b {
+    right: -6%;
+  }
+
+  .heroG-seal {
+    top: -26px;
+    right: -14px;
+    width: 88px;
+    height: 88px;
+  }
+
+  .heroG-spark--3,
+  .heroG-spark--4 {
+    display: none;
+  }
+}
+
+/* ----------------------------------------------------------------------------
+   Girly theme — resto de secciones (catálogo, cómo comprar, reviews, footer).
+   Overrides al final del archivo para ganar en cascada sobre los bloques base.
+---------------------------------------------------------------------------- */
+.section-heading .eyebrow::before,
+.section-heading .eyebrow::after {
+  /* Texto alternativo vacío: los lectores de pantalla no anuncian la estrella */
+  content: "✦" / "";
+  color: var(--color-primary-bright);
+}
+
+.section-heading .eyebrow {
+  margin-bottom: 4px;
+}
+
+/* Catálogo */
+.catalog-toolbar {
+  border: 2px dashed rgba(168, 46, 106, 0.24);
+  border-radius: 22px;
+  background: rgba(255, 255, 255, 0.85);
+}
+
+.filter-chip.is-active {
+  border-color: transparent;
+  /* El primario oscuro domina bajo el texto para mantener contraste AA */
+  background: linear-gradient(
+    135deg,
+    var(--color-primary-bright),
+    var(--color-primary) 45%
+  );
+  color: #fff;
+  box-shadow: 0 8px 20px rgba(255, 116, 177, 0.35);
+  transform: rotate(-1.5deg);
+}
+
+.filter-chip {
+  transition:
+    transform 160ms ease,
+    background 160ms ease,
+    border-color 160ms ease,
+    color 160ms ease;
+}
+
+.filter-chip:not(.is-active):hover {
+  transform: translateY(-2px);
+}
+
+.product-card {
+  border-radius: 18px;
+}
+
+.product-media {
+  border-radius: 12px;
+}
+
+.product-card:hover {
+  transform: translateY(-4px) rotate(-0.7deg);
+}
+
+.product-card:nth-child(even):hover {
+  transform: translateY(-4px) rotate(0.7deg);
+}
+
+/* Cómo comprar — tarjeta candy con arco */
+.how-to-buy {
+  position: relative;
+  margin-top: clamp(48px, 6vw, 72px);
+  padding: clamp(24px, 4vw, 56px);
+  border-radius: 32px;
+  background:
+    radial-gradient(
+        circle,
+        rgba(255, 116, 177, 0.14) 1.4px,
+        transparent 1.4px
+      )
+      0 0 / 24px 24px,
+    linear-gradient(150deg, #fff6fa 0%, #ffe9f1 55%, #ffdfe9 100%);
+  box-shadow: inset 0 0 0 1px rgba(168, 46, 106, 0.08);
+}
+
+.how-to-buy-media {
+  position: relative;
+  overflow: visible;
+  justify-self: center;
+  max-width: 440px;
+  border: 8px solid #fff;
+  border-radius: 999px 999px 24px 24px;
+  box-shadow: 0 24px 60px rgba(168, 46, 106, 0.22);
+}
+
+.how-to-buy-image {
+  border-radius: 991px 991px 16px 16px;
+}
+
+.how-to-buy-media::after {
+  content: "";
+  position: absolute;
+  top: -18px;
+  left: 50%;
+  width: 84px;
+  height: 26px;
+  background: rgba(255, 116, 177, 0.4);
+  transform: translateX(-50%) rotate(-3deg);
+  pointer-events: none;
+}
+
+.how-to-buy-copy .g-sticker {
+  margin-bottom: 16px;
+}
+
+.how-to-buy-steps {
+  gap: 14px;
+}
+
+.how-to-buy-step {
+  padding: 16px;
+  border-radius: 18px;
+  background: rgba(255, 255, 255, 0.78);
+  box-shadow: 0 10px 30px rgba(168, 46, 106, 0.08);
+}
+
+.how-to-buy-step + .how-to-buy-step {
+  border-top: 0;
+}
+
+.how-to-buy-number {
+  background: linear-gradient(
+    135deg,
+    var(--color-primary-bright),
+    var(--color-primary) 45%
+  );
+  color: #fff;
+  box-shadow: 0 8px 20px rgba(255, 116, 177, 0.4);
+}
+
+/* Reviews — polaroids con cinta */
+.review-card {
+  position: relative;
+  padding: 14px 14px 18px;
+  border: 0;
+  border-radius: 6px;
+  box-shadow: 0 16px 40px rgba(168, 46, 106, 0.14);
+  transform: rotate(-1.4deg);
+  transition:
+    transform 240ms ease,
+    box-shadow 240ms ease;
+}
+
+.reviews-grid .review-card:nth-child(even) {
+  transform: rotate(1.3deg);
+}
+
+/* El selector con nth-child es necesario para superar la especificidad
+   de la regla de rotación de las tarjetas pares */
+.review-card:hover,
+.reviews-grid .review-card:nth-child(even):hover {
+  transform: rotate(0deg) translateY(-4px);
+  box-shadow: 0 22px 54px rgba(168, 46, 106, 0.2);
+}
+
+.review-card::before {
+  content: "";
+  position: absolute;
+  top: -11px;
+  left: 50%;
+  z-index: 1;
+  width: 76px;
+  height: 22px;
+  background: rgba(255, 116, 177, 0.38);
+  transform: translateX(-50%) rotate(-4deg);
+  pointer-events: none;
+}
+
+.review-stars {
+  justify-content: center;
+}
+
+.review-image {
+  border-radius: 4px;
+}
+
+/* Footer — banda rosa con borde festoneado */
+.site-footer {
+  position: relative;
+  margin-top: 24px;
+  padding-top: 44px;
+  background:
+    radial-gradient(
+        circle,
+        rgba(255, 116, 177, 0.12) 1.3px,
+        transparent 1.3px
+      )
+      0 0 / 22px 22px,
+    linear-gradient(160deg, #ffe9f1 0%, #ffd9e4 100%);
+}
+
+.site-footer::before {
+  content: "";
+  position: absolute;
+  top: -13px;
+  left: 0;
+  right: 0;
+  height: 14px;
+  background: radial-gradient(
+      circle at 50% 100%,
+      #ffe9f1 10px,
+      transparent 10.5px
+    )
+    0 0 / 28px 14px;
+  pointer-events: none;
+}
+
+.footer-heart {
+  color: var(--color-primary);
+}
+
+@media (max-width: 900px) {
+  /* Aire para la rotación del chip activo dentro de la tira scrolleable */
+  .catalog-filters {
+    padding-block: 4px;
+  }
+}
+
+@media (max-width: 620px) {
+  .how-to-buy {
+    margin-inline: 16px;
+    width: auto;
+  }
+
+  .review-card,
+  .reviews-grid .review-card:nth-child(even) {
+    transform: rotate(0deg);
+  }
+}
+
 @media (prefers-reduced-motion: reduce) {
   *,
   *::before,
@@ -2950,5 +3666,14 @@ select:focus-visible,
     transition-duration: 0.01ms !important;
     animation-duration: 0.01ms !important;
     animation-iteration-count: 1 !important;
+  }
+
+  .heroG-marquee-track {
+    animation: none;
+  }
+
+  .heroG-copy > *,
+  .heroG-visual {
+    animation: none;
   }
 }

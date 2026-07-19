@@ -1,4 +1,5 @@
 import Image from "next/image";
+import { Squiggle } from "@/components/Squiggle";
 
 const steps = [
   {
@@ -31,7 +32,16 @@ export function HowToBuy() {
         />
       </div>
       <div className="how-to-buy-copy">
-        <h2 id="how-to-buy-title">Cómo comprar en Lulu</h2>
+        <p className="g-sticker">
+          <span aria-hidden="true">✨</span> Así de fácil
+        </p>
+        <h2 id="how-to-buy-title">
+          Cómo comprar en{" "}
+          <em className="g-highlight">
+            Lulu
+            <Squiggle />
+          </em>
+        </h2>
         <ol className="how-to-buy-steps">
           {steps.map((step, index) => (
             <li className="how-to-buy-step" key={step.title}>
