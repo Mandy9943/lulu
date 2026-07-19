@@ -40,11 +40,25 @@ const reviews: Review[] = [
     height: 1417,
   },
   {
+    image: "/reviews/resena-foto-set-rosa-clienta.jpeg",
+    alt: "Foto enviada por una clienta de su set de cocina rosa recién llegado, con reacción de corazón",
+    rating: 5,
+    width: 1206,
+    height: 1455,
+  },
+  {
     image: "/reviews/resena-mejor-inversion-ollas.jpeg",
     alt: "Mensaje de una clienta: mi mejor inversión fueron esas ollas",
     rating: 5,
     width: 1205,
     height: 888,
+  },
+  {
+    image: "/reviews/resena-ollas-otro-nivel.jpeg",
+    alt: "Chat de una clienta: las ollas son otro nivel, nos encantó y la vamos a recomendar",
+    rating: 5,
+    width: 1206,
+    height: 1181,
   },
   {
     image: "/reviews/resena-ml-sarten-panqueques.jpeg",
