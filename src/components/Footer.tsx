@@ -20,8 +20,11 @@ export function Footer() {
         <Link href="/privacidad">Privacidad</Link>
       </nav>
       <p>
-        © {new Date().getFullYear()} {site.legalName}. Todos los derechos
-        reservados.
+        © {new Date().getFullYear()} {site.legalName}. Hecho con{" "}
+        <span className="footer-heart" aria-hidden="true">
+          {"♥︎"}
+        </span>{" "}
+        en Uruguay.
       </p>
     </footer>
   );

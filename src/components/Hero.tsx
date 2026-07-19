@@ -1,5 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
+import { Squiggle } from "@/components/Squiggle";
 
 const MARQUEE_ITEMS = [
   "Envíos a todo Uruguay",
@@ -52,20 +53,7 @@ export function Hero() {
             Cocina{" "}
             <em className="heroG-highlight">
               bonita
-              <svg
-                className="heroG-underline"
-                viewBox="0 0 220 22"
-                preserveAspectRatio="none"
-                aria-hidden="true"
-              >
-                <path
-                  d="M4 14 Q 32 4 60 12 T 116 12 T 172 12 T 216 10"
-                  fill="none"
-                  stroke="currentColor"
-                  strokeWidth="7"
-                  strokeLinecap="round"
-                />
-              </svg>
+              <Squiggle className="heroG-underline" />
             </em>{" "}
             para disfrutar todos los días
           </h1>

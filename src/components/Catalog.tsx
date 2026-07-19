@@ -2,6 +2,7 @@
 
 import { Icon } from "@/components/Icon";
 import { ProductCard } from "@/components/ProductCard";
+import { Squiggle } from "@/components/Squiggle";
 import type { Product } from "@/lib/products";
 import { useMemo, useState } from "react";
 
@@ -103,7 +104,14 @@ export function Catalog({ products }: { products: Product[] }) {
     >
       <div className="section-heading">
         <p className="eyebrow">Catálogo Lulu</p>
-        <h2 id="catalog-title">Elegí tus favoritos para la cocina</h2>
+        <h2 id="catalog-title">
+          Elegí tus{" "}
+          <em className="g-highlight">
+            favoritos
+            <Squiggle />
+          </em>{" "}
+          para la cocina
+        </h2>
       </div>
 
       <div className="catalog-toolbar" aria-label="Herramientas del catálogo">
