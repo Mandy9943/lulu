@@ -129,9 +129,12 @@ export const products: Product[] = [
     slug: "bateria-premium-15-piezas",
     name: "Batería de cocina premium con mango desmontable - 15 piezas",
     price: 6990,
+    // Total financiado con MP: precio de lista + 8%
+    mpPrice: 7549.2,
     category: "Cocina",
     type: "ollas",
-    presale: false,
+    presale: true,
+    showCountdown: false,
     paidShippingMvd: true,
     variant: "",
     shortDescription:
@@ -202,9 +205,12 @@ export const products: Product[] = [
     slug: "bateria-premium-9-piezas",
     name: "Batería de cocina premium antiadherente con mango desmontable - 9 piezas",
     price: 5900,
+    // Total financiado con MP: precio de lista + 8%
+    mpPrice: 6372,
     category: "Cocina",
     type: "ollas",
-    presale: false,
+    presale: true,
+    showCountdown: false,
     paidShippingMvd: true,
     variant: "Antiadherente premium color crema con mango desmontable",
     shortDescription:
@@ -247,9 +253,12 @@ export const products: Product[] = [
     slug: "set-cocina-rosa-6-piezas",
     name: "Set de cocina rosa con mango desmontable - 6 piezas",
     price: 3730,
+    // Total financiado con MP: precio de lista + 8%
+    mpPrice: 4028.4,
     category: "Cocina",
     type: "ollas",
-    presale: false,
+    presale: true,
+    showCountdown: false,
     paidShippingMvd: true,
     variant: "",
     shortDescription:
@@ -296,9 +305,12 @@ export const products: Product[] = [
     slug: "recipientes-hermeticos-cafe-te-azucar",
     name: "Conjunto de 3 recipientes herméticos - Café, Té y Azúcar",
     price: 1590,
+    // Total financiado con MP: precio de lista + 8%
+    mpPrice: 1717.2,
     category: "Cocina",
     type: "accesorios",
-    presale: false,
+    presale: true,
+    showCountdown: false,
     paidShippingMvd: true,
     variant: "Set de 3 con tapa hermética de bambú",
     shortDescription:
@@ -341,9 +353,12 @@ export const products: Product[] = [
     slug: "mantequillera-ceramica-bambu",
     name: "Mantequillera hermética de cerámica y bambú",
     price: 1290,
+    // Total financiado con MP: precio de lista + 8%
+    mpPrice: 1393.2,
     category: "Desayuno",
     type: "accesorios",
-    presale: false,
+    presale: true,
+    showCountdown: false,
     paidShippingMvd: true,
     variant: "Cerámica con tapa de bambú — apta lavavajillas y microondas",
     shortDescription:
