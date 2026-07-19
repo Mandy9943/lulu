@@ -3,6 +3,7 @@ import { CartProvider } from "@/components/CartProvider";
 import { Footer } from "@/components/Footer";
 import { Header } from "@/components/Header";
 import { JsonLd } from "@/components/JsonLd";
+import { MusicPlayer } from "@/components/MusicPlayer";
 import { site } from "@/lib/site";
 import type { Metadata } from "next";
 import { Noto_Serif, Plus_Jakarta_Sans } from "next/font/google";
@@ -143,6 +144,7 @@ export default function RootLayout({
           <main id="main">{children}</main>
           <Footer />
           <CartDrawer />
+          <MusicPlayer />
         </CartProvider>
       </body>
     </html>
