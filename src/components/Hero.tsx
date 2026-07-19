@@ -115,7 +115,7 @@ export function Hero() {
               width={160}
               height={160}
             />
-            <figcaption>Olla carita ✿</figcaption>
+            <figcaption>Único en Uruguay ✿</figcaption>
           </figure>
 
           <div className="heroG-seal" aria-hidden="true">
