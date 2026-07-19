@@ -1,5 +1,7 @@
 import { Catalog } from "@/components/Catalog";
 import { Hero } from "@/components/Hero";
+import { HowToBuy } from "@/components/HowToBuy";
+import { Reviews } from "@/components/Reviews";
 import { products } from "@/lib/products";
 import type { Metadata } from "next";
 
@@ -37,6 +39,8 @@ export default function HomePage() {
     <>
       <Hero />
       <Catalog products={products} />
+      <HowToBuy />
+      <Reviews />
     </>
   );
 }

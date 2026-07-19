@@ -1825,8 +1825,8 @@ select:focus-visible,
   margin-top: 8px;
   padding: 3px 8px;
   border-radius: 999px;
-  background: #f1edef;
-  color: #6b5560;
+  background: #e8f5e9;
+  color: #2e7d32;
   font-size: 0.65rem;
   font-weight: 700;
   letter-spacing: 0.04em;
@@ -1834,12 +1834,6 @@ select:focus-visible,
 
 .shipping-badge .material-symbols-outlined {
   font-size: 13px;
-}
-
-/* Envío gratis — verde (los productos con envío pago quedan neutros) */
-.shipping-badge--free {
-  background: #e8f5e9;
-  color: #2e7d32;
 }
 
 /* Shipping note — footer del carrito */
@@ -2599,6 +2593,162 @@ select:focus-visible,
 
 .privacy-container a:hover {
   color: var(--color-tertiary);
+}
+
+/* Cómo comprar — pasos de compra */
+.how-to-buy {
+  width: min(1280px, calc(100% - 32px));
+  margin: 0 auto;
+  padding: clamp(64px, 8vw, 96px) 0 0;
+  display: grid;
+  grid-template-columns: 1fr 1.1fr;
+  gap: clamp(28px, 4vw, 64px);
+  align-items: center;
+}
+
+.how-to-buy-media {
+  border-radius: 24px;
+  overflow: hidden;
+}
+
+.how-to-buy-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  aspect-ratio: 1 / 1;
+}
+
+.how-to-buy-copy h2 {
+  margin: 0 0 clamp(24px, 3vw, 40px);
+  font-family: var(--font-serif);
+  font-size: clamp(1.9rem, 3.2vw, 2.85rem);
+  line-height: 1.15;
+}
+
+.how-to-buy-steps {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+}
+
+.how-to-buy-step {
+  display: flex;
+  align-items: flex-start;
+  gap: 18px;
+  padding: 18px 0;
+}
+
+.how-to-buy-step + .how-to-buy-step {
+  border-top: 1px solid var(--color-outline);
+}
+
+.how-to-buy-number {
+  flex-shrink: 0;
+  display: grid;
+  place-items: center;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: var(--color-primary-soft);
+  color: var(--color-primary);
+  font-family: var(--font-serif);
+  font-size: 1.3rem;
+  font-weight: 700;
+}
+
+.how-to-buy-step h3 {
+  margin: 0 0 4px;
+  font-size: 1.15rem;
+  color: var(--color-primary);
+}
+
+.how-to-buy-step p {
+  margin: 0;
+  color: var(--color-muted);
+  font-size: 0.95rem;
+}
+
+@media (max-width: 900px) {
+  .how-to-buy {
+    grid-template-columns: 1fr;
+  }
+
+  .how-to-buy-media {
+    max-width: 520px;
+  }
+}
+
+/* Reviews — capturas de chats de clientas */
+.reviews-section {
+  width: min(1280px, calc(100% - 32px));
+  margin: 0 auto;
+  padding: clamp(64px, 8vw, 96px) 0;
+}
+
+.reviews-grid {
+  columns: 3;
+  column-gap: clamp(16px, 2.5vw, 28px);
+}
+
+.review-card {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  margin: 0 0 clamp(16px, 2.5vw, 28px);
+  padding: clamp(16px, 2vw, 24px);
+  border-radius: 20px;
+  background: var(--color-surface-lowest);
+  border: 1px solid var(--color-outline);
+  break-inside: avoid;
+}
+
+.review-stars {
+  display: flex;
+  gap: 4px;
+  font-size: 1.35rem;
+  line-height: 1;
+}
+
+.review-stars .star {
+  color: var(--color-surface-variant);
+}
+
+.review-stars .star--filled {
+  color: var(--color-primary-bright);
+}
+
+.review-image {
+  width: 100%;
+  height: auto;
+  border-radius: 14px;
+}
+
+.review-image--placeholder {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  aspect-ratio: 4 / 5;
+  background: var(--color-surface-low);
+  color: var(--color-muted);
+  font-size: 0.8rem;
+  font-weight: 600;
+}
+
+.review-image--placeholder .material-symbols-outlined {
+  font-size: 34px;
+  color: var(--color-primary);
+}
+
+@media (max-width: 900px) {
+  .reviews-grid {
+    columns: 1;
+    max-width: 520px;
+    margin: 0 auto;
+  }
 }
 
 @media (prefers-reduced-motion: reduce) {
