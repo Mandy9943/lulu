@@ -413,63 +413,17 @@ select:focus-visible,
 }
 
 /* ----------------------------------------------------------------------------
-   Hero
+   Section headings (los estilos del hero viven en la sección "Hero girly")
 ---------------------------------------------------------------------------- */
-.hero {
-  position: relative;
-  min-height: min(870px, calc(100svh - 64px));
-  display: grid;
-  place-items: center;
-  overflow: hidden;
-  background-color: var(--color-surface-lowest);
-  background-image: url("/hero/lulu-cocina-hero.png");
-  background-position: center center;
-  background-repeat: no-repeat;
-  background-size: cover;
-  background-attachment: fixed;
-}
-
-.hero::after {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(
-    180deg,
-    rgba(252, 249, 248, 0.2),
-    rgba(252, 249, 248, 0.82) 84%
-  );
-}
-
-.hero-copy {
-  position: relative;
-  z-index: 1;
-  width: min(680px, calc(100% - 32px));
-  margin-top: 8vh;
-  text-align: center;
-}
-
 .eyebrow {
   margin: 0 0 12px;
   color: var(--color-primary);
 }
 
-.hero h1,
 .section-heading h2 {
   margin: 0;
   font-family: var(--font-serif);
   line-height: 1.08;
-}
-
-.hero h1 {
-  font-size: clamp(2.4rem, 6vw, 4.8rem);
-  font-weight: 700;
-}
-
-.hero p:not(.eyebrow) {
-  width: min(580px, 100%);
-  margin: 18px auto 34px;
-  color: var(--color-muted);
-  font-size: clamp(1rem, 1.8vw, 1.2rem);
 }
 
 /* ----------------------------------------------------------------------------
@@ -1987,15 +1941,6 @@ select:focus-visible,
     gap: 0;
   }
 
-  .hero {
-    min-height: 620px;
-    background-attachment: scroll;
-  }
-
-  .hero-copy {
-    margin-top: 12vh;
-  }
-
   .section-heading {
     align-items: start;
     flex-direction: column;
@@ -2966,6 +2911,7 @@ select:focus-visible,
   border-radius: 50%;
   filter: blur(70px);
   pointer-events: none;
+  will-change: transform;
   animation: heroG-drift 14s ease-in-out infinite alternate;
 }
 
@@ -3206,11 +3152,21 @@ select:focus-visible,
   color: var(--color-primary);
 }
 
-/* Visual: arco + polaroids + sello */
+/* Visual: arco + polaroids + sello.
+   Solo transform en la entrada: la foto es el LCP y no debe nacer invisible. */
 .heroG-visual {
   position: relative;
   justify-self: center;
-  animation: heroG-rise 800ms 200ms cubic-bezier(0.2, 0.7, 0.2, 1) both;
+  animation: heroG-slide 800ms 200ms cubic-bezier(0.2, 0.7, 0.2, 1) both;
+}
+
+@keyframes heroG-slide {
+  from {
+    transform: translateY(26px);
+  }
+  to {
+    transform: translateY(0);
+  }
 }
 
 .heroG-arch {
@@ -3311,7 +3267,7 @@ select:focus-visible,
   fill: var(--color-primary);
   font-size: 11.5px;
   font-weight: 800;
-  letter-spacing: 0.22em;
+  letter-spacing: 0.18em;
   text-transform: uppercase;
 }
 
@@ -3350,6 +3306,12 @@ select:focus-visible,
   display: flex;
   width: max-content;
   animation: heroG-marquee 26s linear infinite;
+}
+
+/* WCAG 2.2.2: contenido en movimiento debe poder pausarse */
+.heroG-marquee:hover .heroG-marquee-track,
+.heroG-marquee:focus-within .heroG-marquee-track {
+  animation-play-state: paused;
 }
 
 .heroG-marquee-row {

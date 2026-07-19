@@ -8,13 +8,13 @@ const MARQUEE_ITEMS = [
   "Tonos suaves que enamoran",
 ];
 
-function MarqueeRow({ hidden }: { hidden?: boolean }) {
+function MarqueeRow({ decorative }: { decorative?: boolean }) {
   return (
-    <span className="heroG-marquee-row" aria-hidden={hidden || undefined}>
+    <span className="heroG-marquee-row" aria-hidden={decorative || undefined}>
       {MARQUEE_ITEMS.map((item) => (
         <span key={item} className="heroG-marquee-item">
           {item}
-          <span className="heroG-marquee-heart">♥</span>
+          <span className="heroG-marquee-heart">{"♥︎"}</span>
         </span>
       ))}
     </span>
@@ -104,7 +104,7 @@ export function Hero() {
               alt="Cocina Lulu en tonos rosados con flores y utensilios suaves"
               fill
               priority
-              sizes="(max-width: 900px) 88vw, 460px"
+              sizes="(max-width: 620px) 78vw, (max-width: 900px) 74vw, 460px"
             />
           </div>
 
@@ -140,7 +140,7 @@ export function Hero() {
               </defs>
               <text>
                 <textPath href="#heroG-seal-circle">
-                  cocina bonita ♥ hecho con amor ♥ lulu uy ♥
+                  cocina bonita ♥ lulu uy ♥
                 </textPath>
               </text>
             </svg>
@@ -152,7 +152,7 @@ export function Hero() {
       <div className="heroG-marquee">
         <div className="heroG-marquee-track">
           <MarqueeRow />
-          <MarqueeRow hidden />
+          <MarqueeRow decorative />
         </div>
       </div>
     </section>
