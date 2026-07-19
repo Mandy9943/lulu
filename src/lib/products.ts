@@ -127,13 +127,13 @@ export interface Product {
 export const products: Product[] = [
   {
     slug: "bateria-premium-15-piezas",
-    name: "Batería de cocina premium antiadherente con mango desmontable - 15 piezas",
+    name: "Batería de cocina premium con mango desmontable - 15 piezas",
     price: 6990,
     category: "Cocina",
     type: "ollas",
     presale: true,
     paidShippingMvd: true,
-    variant: "Antiadherente premium con mango desmontable",
+    variant: "",
     shortDescription:
       "Batería completa de 15 piezas en rosa o púrpura, con mango desmontable y diseño apilable.",
     description:
@@ -245,13 +245,13 @@ export const products: Product[] = [
   },
   {
     slug: "set-cocina-rosa-6-piezas",
-    name: "Set de cocina antiadherente rosa con mango desmontable - 6 piezas",
+    name: "Set de cocina rosa con mango desmontable - 6 piezas",
     price: 3730,
     category: "Cocina",
     type: "ollas",
     presale: true,
     paidShippingMvd: true,
-    variant: "Antiadherente de cerámica rosa con mango desmontable",
+    variant: "",
     shortDescription:
       "Set rosa premium con mango desmontable y tapa hermética para llevar del fuego a la heladera.",
     description:
@@ -374,8 +374,7 @@ export const products: Product[] = [
       "Tapa hermética",
       "Manteca cremosa a temperatura ambiente",
     ],
-    coverImage:
-      "/productos/mantequillera-ceramica-bambu/mantequillera-1.jpeg",
+    coverImage: "/productos/mantequillera-ceramica-bambu/mantequillera-1.jpeg",
     images: [
       "/productos/mantequillera-ceramica-bambu/mantequillera-1.jpeg",
       "/productos/mantequillera-ceramica-bambu/mantequillera-2.jpeg",
@@ -476,7 +475,7 @@ export const products: Product[] = [
     type: "ollas",
     badge: "Nuevo",
     stock: 0,
-    variant: "Antiadherente premium con mango desmontable",
+    variant: "",
     shortDescription:
       "Juego premium de aluminio con mango extraíble, antiadherente libre de PFOA y apilable.",
     description:
