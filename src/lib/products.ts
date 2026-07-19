@@ -138,6 +138,28 @@ export const products: Product[] = [
       "Batería completa de 15 piezas en rosa o púrpura, con mango desmontable y diseño apilable.",
     description:
       "Juego de utensilios de cocina premium con mango desmontable, compatible con cocina de gas, inducción, horno y lavavajillas. Multicapa antiadherente de cerámica y fondo de aluminio, libre de PFOAS y materiales tóxicos, con diseño apilable para un fácil almacenamiento. Incluye tres sartenes, dos ollas, dos mangos desmontables, dos tapas para refrigerador, dos tapas de vidrio y 4 almohadillas de fieltro para apilar. Disponible en dos colores: rosa y púrpura.",
+    descriptionBlocks: [
+      {
+        title: "Batería completa de 15 piezas",
+        body: "Incluye tres sartenes, dos ollas, dos mangos desmontables, dos tapas para refrigerador, dos tapas de vidrio y cuatro almohadillas de fieltro para apilar sin rayar.",
+      },
+      {
+        title: "Antiadherente cerámico libre de tóxicos",
+        body: "Multicapa antiadherente de cerámica con fondo de aluminio, libre de PFOAS y materiales tóxicos, para cocinar más sano y limpiar en segundos.",
+      },
+      {
+        title: "Mango desmontable y diseño apilable",
+        body: "El mango se quita con un gesto y las piezas se apilan entre sí: pasás del fuego al horno o a la heladera y guardás todo ocupando mínimo espacio.",
+      },
+      {
+        title: "Compatible con todas las cocinas",
+        body: "Apta para cocina de gas, inducción, horno y vitrocerámica, y se puede lavar en el lavavajillas.",
+      },
+      {
+        title: "Dos colores para elegir",
+        body: "Disponible en rosa y púrpura, para que combine con el estilo de tu cocina.",
+      },
+    ],
     highlights: [
       "15 piezas",
       "Libre de PFOAS y materiales tóxicos",
@@ -189,6 +211,24 @@ export const products: Product[] = [
       "Batería de 9 piezas en tono crema, con mango desmontable y diseño apilable.",
     description:
       "Juego de utensilios de cocina premium con mango desmontable, compatible con cocina de gas, inducción, horno y lavavajillas. Multicapa antiadherente de cerámica y fondo de aluminio, libre de PFOAS y materiales tóxicos, con diseño apilable para un fácil almacenamiento. Incluye 3 sartenes, 2 ollas, 2 tapas y 2 mangos desmontables.",
+    descriptionBlocks: [
+      {
+        title: "Set de 9 piezas en tono crema",
+        body: "Incluye tres sartenes, dos ollas, dos tapas y dos mangos desmontables, en un tono crema que ilumina cualquier cocina.",
+      },
+      {
+        title: "Antiadherente cerámico libre de tóxicos",
+        body: "Multicapa antiadherente de cerámica con fondo de aluminio, libre de PFOAS y materiales tóxicos, para cocinar más sano y limpiar en segundos.",
+      },
+      {
+        title: "Mango desmontable y diseño apilable",
+        body: "El mango se quita con un gesto y las piezas se apilan entre sí, para guardar todo ordenado ocupando mínimo espacio.",
+      },
+      {
+        title: "Compatible con todas las cocinas",
+        body: "Apta para cocina de gas, inducción, horno y vitrocerámica, y se puede lavar en el lavavajillas.",
+      },
+    ],
     highlights: [
       "9 piezas",
       "Libre de PFOAS y materiales tóxicos",
@@ -216,6 +256,28 @@ export const products: Product[] = [
       "Set rosa premium con mango desmontable y tapa hermética para llevar del fuego a la heladera.",
     description:
       "Juego de utensilios de cocina premium con mango desmontable y tapa hermética para refrigerador, compatible con cocina de gas, inducción, horno y lavavajillas. Multicapa antiadherente de cerámica y fondo de aluminio, libre de PFOAS y materiales tóxicos, con diseño apilable para un fácil almacenamiento. Incluye dos sartenes, una olla, tapa de vidrio, un mango desmontable y una tapa hermética para guardar tus comidas directo en el refrigerador.",
+    descriptionBlocks: [
+      {
+        title: "Set rosa de 6 piezas",
+        body: "Incluye dos sartenes, una olla, tapa de vidrio, un mango desmontable y una tapa hermética, en un rosa suave que se luce en la cocina.",
+      },
+      {
+        title: "Del fuego a la heladera",
+        body: "La tapa hermética te permite guardar tus comidas directo en el refrigerador, sin trasvasar a otro recipiente.",
+      },
+      {
+        title: "Antiadherente cerámico libre de tóxicos",
+        body: "Multicapa antiadherente de cerámica con fondo de aluminio, libre de PFOAS y materiales tóxicos, para cocinar más sano y limpiar en segundos.",
+      },
+      {
+        title: "Mango desmontable y diseño apilable",
+        body: "El mango se quita con un gesto y las piezas se apilan entre sí, para guardar todo ordenado ocupando mínimo espacio.",
+      },
+      {
+        title: "Compatible con todas las cocinas",
+        body: "Apta para cocina de gas, inducción, horno y vitrocerámica, y se puede lavar en el lavavajillas.",
+      },
+    ],
     highlights: [
       "6 piezas",
       "Libre de PFOAS y materiales tóxicos",
@@ -243,6 +305,24 @@ export const products: Product[] = [
       "Trío de contenedores en tonos suaves para café, té y azúcar, con tapa hermética de bambú.",
     description:
       "Set femenino de contenedores en tonos suaves, con tapa hermética de bambú e interior de hierro que limita la luz y el paso del aire. Ideal para conservar café, té y azúcar frescos y a la vez decorar tu cocina.",
+    descriptionBlocks: [
+      {
+        title: "Trío para café, té y azúcar",
+        body: "Tres recipientes en tonos suaves para tener tus infusiones ordenadas, identificadas y siempre a mano.",
+      },
+      {
+        title: "Tapa hermética de bambú",
+        body: "El cierre hermético con tapa de bambú mantiene el contenido fresco y suma un detalle natural y cálido.",
+      },
+      {
+        title: "Frescura que dura más",
+        body: "El interior de hierro limita la luz y el paso del aire, conservando el aroma y el sabor de café, té y azúcar por más tiempo.",
+      },
+      {
+        title: "Decoración para tu cocina",
+        body: "Un diseño femenino y delicado que además de conservar, decora la mesada o la estantería.",
+      },
+    ],
     highlights: [
       "Set de 3 piezas",
       "Tapa hermética de bambú",
@@ -270,6 +350,24 @@ export const products: Product[] = [
       "Mantené tu manteca cremosa y lista para untar, con un diseño que luce en la mesa.",
     description:
       "Mantequillera hermética de cerámica y bambú, apta para lavavajillas y microondas. Almacena y mantiene tu manteca a temperatura ambiente, garantizando siempre una textura cremosa y lista para untar sin sacrificar el diseño.",
+    descriptionBlocks: [
+      {
+        title: "Manteca cremosa siempre lista",
+        body: "Mantiene tu manteca a temperatura ambiente con una textura cremosa y lista para untar, sin pelear con la manteca dura de la heladera.",
+      },
+      {
+        title: "Cerámica y bambú",
+        body: "Combina la cerámica con una tapa de bambú en un diseño natural que se luce en la mesa del desayuno.",
+      },
+      {
+        title: "Cierre hermético",
+        body: "La tapa hermética protege la manteca del aire y los olores, conservando su sabor por más tiempo.",
+      },
+      {
+        title: "Fácil de usar y limpiar",
+        body: "Apta para lavavajillas y microondas: la usás todos los días y la limpiás sin esfuerzo.",
+      },
+    ],
     highlights: [
       "Cerámica y bambú",
       "Apta para lavavajillas y microondas",
