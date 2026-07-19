@@ -3734,14 +3734,18 @@ select:focus-visible,
   box-shadow: 0 22px 54px rgba(168, 46, 106, 0.2);
 }
 
+/* La cinta no debe sobresalir del borde superior: en el layout de columnas,
+   lo que asoma por encima de una tarjeta al inicio de una columna se pinta
+   como tira huérfana al final de la columna anterior */
 .review-card::before {
   content: "";
   position: absolute;
-  top: -11px;
+  /* 3px: las esquinas rotadas de la cinta tampoco deben asomar */
+  top: 3px;
   left: 50%;
   z-index: 1;
   width: 76px;
-  height: 22px;
+  height: 20px;
   background: rgba(255, 116, 177, 0.38);
   transform: translateX(-50%) rotate(-4deg);
   pointer-events: none;
