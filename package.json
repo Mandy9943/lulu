@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "private": true,
   "description": "Lulu | Cocina bonita para todos los dias - storefront en Next.js",
+  "packageManager": "pnpm@11.10.0",
   "scripts": {
     "dev": "next dev",
     "build": "next build",
