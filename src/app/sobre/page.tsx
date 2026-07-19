@@ -39,7 +39,7 @@ export default function SobrePage() {
           <div className="about-story-text">
             <h2>Cómo empecé</h2>
             <p>
-              Me llamo Nadin. Lulu nació en 2019 porque me cansé de buscar ollas
+              Me llamo Nadin. Lulu nació en 2025 porque me cansé de buscar ollas
               y sartenes que fueran prácticas <em>y</em> lindas al mismo tiempo.
               Todo lo que encontraba era muy industrial o demasiado caro para lo
               que era.
