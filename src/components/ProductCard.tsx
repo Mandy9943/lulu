@@ -56,7 +56,7 @@ export function ProductCard({ product, priority = false }: Props) {
           />
         </Link>
         {presale ? (
-          <span className="badge badge--presale">Preventa exprés</span>
+          <span className="badge badge--presale">Encargo</span>
         ) : (
           product.badge && <span className="badge">{product.badge}</span>
         )}

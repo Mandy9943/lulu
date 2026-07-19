@@ -62,7 +62,7 @@ export function ProductDetailClient({ product }: { product: Product }) {
       <div className="detail-copy">
         <div className="detail-pills">
           {presale && (
-            <span className="pill pill--presale">Preventa exprés</span>
+            <span className="pill pill--presale">Encargo</span>
           )}
           {product.badge && <span className="pill">{product.badge}</span>}
           {lastUnit && (
@@ -102,7 +102,7 @@ export function ProductDetailClient({ product }: { product: Product }) {
           <CountdownTimer
             targetDate={presale ? PRESALE_END_DATE : PROMO_END_DATE}
             variant="detail"
-            label={presale ? "Preventa exprés termina en" : "Oferta termina en"}
+            label={presale ? "Encargo termina en" : "Oferta termina en"}
           />
         )}
         {product.paidShippingMvd ? (

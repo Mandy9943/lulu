@@ -233,7 +233,7 @@ export const products: Product[] = [
   {
     slug: "recipientes-hermeticos-cafe-te-azucar",
     name: "Conjunto de 3 recipientes herméticos - Café, Té y Azúcar",
-    price: 1390,
+    price: 1590,
     category: "Cocina",
     type: "accesorios",
     presale: true,
@@ -727,6 +727,7 @@ export const products: Product[] = [
       "Taza de café de 400 ml con cierre hermético para llevar tu bebida sin derrames. Compacta y práctica para el trabajo, el estudio o cualquier salida.",
     highlights: ["Cierre hermético", "Capacidad 400 ml", "Lista para llevar"],
     images: ["/productos/taza-cafe-viaje/taza-cafe-viaje-1.jpeg"],
+    stock: 0,
   },
 ];
 
