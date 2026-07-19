@@ -97,7 +97,6 @@ export function Hero() {
           </div>
 
           <figure className="heroG-polaroid heroG-polaroid--a" aria-hidden="true">
-            <span className="heroG-tape" />
             <Image
               src="/productos/set-cocina-rosa-6-piezas/set-rosa-1.jpeg"
               alt=""
@@ -108,7 +107,6 @@ export function Hero() {
           </figure>
 
           <figure className="heroG-polaroid heroG-polaroid--b" aria-hidden="true">
-            <span className="heroG-tape" />
             <Image
               src="/productos/olla-cara/1907fda9-4415-41f1-b6a7-911599f9028c.jpeg"
               alt=""
