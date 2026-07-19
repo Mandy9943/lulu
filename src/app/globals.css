@@ -3429,8 +3429,13 @@ select:focus-visible,
 ---------------------------------------------------------------------------- */
 .section-heading .eyebrow::before,
 .section-heading .eyebrow::after {
-  content: "✦";
+  /* Texto alternativo vacío: los lectores de pantalla no anuncian la estrella */
+  content: "✦" / "";
   color: var(--color-primary-bright);
+}
+
+.section-heading .eyebrow {
+  margin-bottom: 4px;
 }
 
 /* Catálogo */
@@ -3442,10 +3447,11 @@ select:focus-visible,
 
 .filter-chip.is-active {
   border-color: transparent;
+  /* El primario oscuro domina bajo el texto para mantener contraste AA */
   background: linear-gradient(
     135deg,
     var(--color-primary-bright),
-    var(--color-primary)
+    var(--color-primary) 45%
   );
   color: #fff;
   box-shadow: 0 8px 20px rgba(255, 116, 177, 0.35);
@@ -3520,7 +3526,7 @@ select:focus-visible,
   height: 26px;
   background: rgba(255, 116, 177, 0.4);
   transform: translateX(-50%) rotate(-3deg);
-  backdrop-filter: blur(2px);
+  pointer-events: none;
 }
 
 .how-to-buy-copy .g-sticker {
@@ -3546,7 +3552,7 @@ select:focus-visible,
   background: linear-gradient(
     135deg,
     var(--color-primary-bright),
-    var(--color-primary)
+    var(--color-primary) 45%
   );
   color: #fff;
   box-shadow: 0 8px 20px rgba(255, 116, 177, 0.4);
@@ -3569,7 +3575,10 @@ select:focus-visible,
   transform: rotate(1.3deg);
 }
 
-.review-card:hover {
+/* El selector con nth-child es necesario para superar la especificidad
+   de la regla de rotación de las tarjetas pares */
+.review-card:hover,
+.reviews-grid .review-card:nth-child(even):hover {
   transform: rotate(0deg) translateY(-4px);
   box-shadow: 0 22px 54px rgba(168, 46, 106, 0.2);
 }
@@ -3584,7 +3593,7 @@ select:focus-visible,
   height: 22px;
   background: rgba(255, 116, 177, 0.38);
   transform: translateX(-50%) rotate(-4deg);
-  backdrop-filter: blur(2px);
+  pointer-events: none;
 }
 
 .review-stars {
@@ -3623,10 +3632,18 @@ select:focus-visible,
       transparent 10.5px
     )
     0 0 / 28px 14px;
+  pointer-events: none;
 }
 
 .footer-heart {
   color: var(--color-primary);
+}
+
+@media (max-width: 900px) {
+  /* Aire para la rotación del chip activo dentro de la tira scrolleable */
+  .catalog-filters {
+    padding-block: 4px;
+  }
 }
 
 @media (max-width: 620px) {

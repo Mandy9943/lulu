@@ -23,8 +23,8 @@ export function Footer() {
         © {new Date().getFullYear()} {site.legalName}. Hecho con{" "}
         <span className="footer-heart" aria-hidden="true">
           {"♥︎"}
-        </span>{" "}
-        en Uruguay.
+        </span>
+        <span className="visually-hidden">amor</span> en Uruguay.
       </p>
     </footer>
   );

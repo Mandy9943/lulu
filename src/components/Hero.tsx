@@ -53,7 +53,7 @@ export function Hero() {
             Cocina{" "}
             <em className="heroG-highlight">
               bonita
-              <Squiggle className="heroG-underline" />
+              <Squiggle />
             </em>{" "}
             para disfrutar todos los días
           </h1>
