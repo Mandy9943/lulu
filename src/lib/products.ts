@@ -131,7 +131,7 @@ export const products: Product[] = [
     price: 6990,
     category: "Cocina",
     type: "ollas",
-    presale: true,
+    presale: false,
     paidShippingMvd: true,
     variant: "",
     shortDescription:
@@ -204,7 +204,7 @@ export const products: Product[] = [
     price: 5900,
     category: "Cocina",
     type: "ollas",
-    presale: true,
+    presale: false,
     paidShippingMvd: true,
     variant: "Antiadherente premium color crema con mango desmontable",
     shortDescription:
@@ -249,7 +249,7 @@ export const products: Product[] = [
     price: 3730,
     category: "Cocina",
     type: "ollas",
-    presale: true,
+    presale: false,
     paidShippingMvd: true,
     variant: "",
     shortDescription:
@@ -298,7 +298,7 @@ export const products: Product[] = [
     price: 1590,
     category: "Cocina",
     type: "accesorios",
-    presale: true,
+    presale: false,
     paidShippingMvd: true,
     variant: "Set de 3 con tapa hermética de bambú",
     shortDescription:
@@ -343,7 +343,7 @@ export const products: Product[] = [
     price: 1290,
     category: "Desayuno",
     type: "accesorios",
-    presale: true,
+    presale: false,
     paidShippingMvd: true,
     variant: "Cerámica con tapa de bambú — apta lavavajillas y microondas",
     shortDescription:
