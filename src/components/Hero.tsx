@@ -1,19 +1,159 @@
+import Image from "next/image";
 import Link from "next/link";
+
+const MARQUEE_ITEMS = [
+  "Envíos a todo Uruguay",
+  "12 cuotas con Mercado Pago",
+  "Cocina bonita todos los días",
+  "Tonos suaves que enamoran",
+];
+
+function MarqueeRow({ hidden }: { hidden?: boolean }) {
+  return (
+    <span className="heroG-marquee-row" aria-hidden={hidden || undefined}>
+      {MARQUEE_ITEMS.map((item) => (
+        <span key={item} className="heroG-marquee-item">
+          {item}
+          <span className="heroG-marquee-heart">♥</span>
+        </span>
+      ))}
+    </span>
+  );
+}
 
 export function Hero() {
   return (
-    <section className="hero" aria-labelledby="hero-title">
-      <div className="hero-copy">
-        <p className="eyebrow">Envíos a Montevideo y todo Uruguay</p>
-        <h1 id="hero-title">Cocina bonita para disfrutar todos los días</h1>
-        <p>
-          Ollas, sartenes y utensilios en tonos suaves, pensados para cocinar
-          fácil, ordenar mejor y sumar encanto a tu rutina. Enviamos a
-          Montevideo y todo el país.
-        </p>
-        <Link className="primary-link" href="/#catalog">
-          Explorar catálogo
-        </Link>
+    <section className="heroG" aria-labelledby="hero-title">
+      {/* Fondo decorativo */}
+      <div className="heroG-blob heroG-blob--a" aria-hidden="true" />
+      <div className="heroG-blob heroG-blob--b" aria-hidden="true" />
+      <span className="heroG-spark heroG-spark--1" aria-hidden="true">
+        ✦
+      </span>
+      <span className="heroG-spark heroG-spark--2" aria-hidden="true">
+        ✧
+      </span>
+      <span className="heroG-spark heroG-spark--3" aria-hidden="true">
+        ✦
+      </span>
+      <span className="heroG-spark heroG-spark--4" aria-hidden="true">
+        ♥
+      </span>
+      <span className="heroG-spark heroG-spark--5" aria-hidden="true">
+        ✧
+      </span>
+
+      <div className="heroG-layout">
+        <div className="heroG-copy">
+          <p className="heroG-sticker">
+            <span aria-hidden="true">✨</span> Colección en rosa
+          </p>
+          <h1 id="hero-title">
+            Cocina{" "}
+            <em className="heroG-highlight">
+              bonita
+              <svg
+                className="heroG-underline"
+                viewBox="0 0 220 22"
+                preserveAspectRatio="none"
+                aria-hidden="true"
+              >
+                <path
+                  d="M4 14 Q 32 4 60 12 T 116 12 T 172 12 T 216 10"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="7"
+                  strokeLinecap="round"
+                />
+              </svg>
+            </em>{" "}
+            para disfrutar todos los días
+          </h1>
+          <p className="heroG-lead">
+            Ollas, sartenes y utensilios en tonos suaves, pensados para cocinar
+            fácil, ordenar mejor y sumar encanto a tu rutina.
+          </p>
+          <div className="heroG-cta">
+            <Link className="primary-link" href="/#catalog">
+              Explorar catálogo
+            </Link>
+            <Link className="heroG-cta-alt" href="/sobre">
+              Nuestra historia
+            </Link>
+          </div>
+          <ul className="heroG-trust">
+            <li>
+              <span className="material-symbols-outlined" aria-hidden="true">
+                local_shipping
+              </span>
+              Envíos a todo el país
+            </li>
+            <li>
+              <span className="material-symbols-outlined" aria-hidden="true">
+                credit_card_heart
+              </span>
+              Hasta 12 cuotas
+            </li>
+          </ul>
+        </div>
+
+        <div className="heroG-visual">
+          <div className="heroG-arch">
+            <Image
+              src="/hero/lulu-cocina-hero.png"
+              alt="Cocina Lulu en tonos rosados con flores y utensilios suaves"
+              fill
+              priority
+              sizes="(max-width: 900px) 88vw, 460px"
+            />
+          </div>
+
+          <figure className="heroG-polaroid heroG-polaroid--a" aria-hidden="true">
+            <span className="heroG-tape" />
+            <Image
+              src="/productos/set-cocina-rosa-6-piezas/set-rosa-1.jpeg"
+              alt=""
+              width={160}
+              height={160}
+            />
+            <figcaption>Set rosa ♥</figcaption>
+          </figure>
+
+          <figure className="heroG-polaroid heroG-polaroid--b" aria-hidden="true">
+            <span className="heroG-tape" />
+            <Image
+              src="/productos/olla-cara/1907fda9-4415-41f1-b6a7-911599f9028c.jpeg"
+              alt=""
+              width={160}
+              height={160}
+            />
+            <figcaption>Olla carita ✿</figcaption>
+          </figure>
+
+          <div className="heroG-seal" aria-hidden="true">
+            <svg viewBox="0 0 120 120">
+              <defs>
+                <path
+                  id="heroG-seal-circle"
+                  d="M 60,60 m -44,0 a 44,44 0 1,1 88,0 a 44,44 0 1,1 -88,0"
+                />
+              </defs>
+              <text>
+                <textPath href="#heroG-seal-circle">
+                  cocina bonita ♥ hecho con amor ♥ lulu uy ♥
+                </textPath>
+              </text>
+            </svg>
+            <span className="heroG-seal-center">✿</span>
+          </div>
+        </div>
+      </div>
+
+      <div className="heroG-marquee">
+        <div className="heroG-marquee-track">
+          <MarqueeRow />
+          <MarqueeRow hidden />
+        </div>
       </div>
     </section>
   );
